@@ -12,7 +12,6 @@ class ResourcesController < ApplicationController
 			@title = "Resources"
     end
     @resource_categories = Tag.joins(:taggings).where(:taggings => {:taggable_type => 'Resource'}).uniq
-    @business_highlight = BusinessHighlight.where(:display => true).order(:date).first
+    @business_highlight = BusinessHighlight.where(:display => true).order("date desc").first
   end
 end
-
