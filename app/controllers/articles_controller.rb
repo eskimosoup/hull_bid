@@ -17,14 +17,13 @@ class ArticlesController < ApplicationController
   		search = Article.where(:display => true)
     end
     @articles = search.order("date DESC").page(params[:page]).per(10)
-    @business_highlight = BusinessHighlight.where(:display => true).order(:date).first
+    @business_highlight = BusinessHighlight.where(:display => true).order("date desc").first
   end
 
   def show
     @current_branch = Willow::Branch.find_by_name('News')
     @article = Article.find(params[:id])
-    @business_highlight = BusinessHighlight.where(:display => true).order(:date).first
+    @business_highlight = BusinessHighlight.where(:display => true).order("date desc").first
   end
 
 end
-

@@ -21,13 +21,13 @@ class EventsController < ApplicationController
     @events = search.order("start_date ASC").page(params[:page]).per(10)
     @default_gallery = DefaultGalleryImage.where(:display => true).order(:position).first
 
-    @business_highlight = BusinessHighlight.where(:display => true).order(:date).first
+    @business_highlight = BusinessHighlight.where(:display => true).order("date desc").first
   end
 
   def show
     @event = Event.find(params[:id])
     @current_branch = Willow::Branch.find_by_name('Events')
-    @business_highlight = BusinessHighlight.where(:display => true).order(:date).first
+    @business_highlight = BusinessHighlight.where(:display => true).order("date desc").first
   end
 
 end

@@ -14,8 +14,7 @@ class BusinessesController < ApplicationController
       @business_categories = @businesses.map{|x| x.categories}.flatten.uniq.sort_by{|x| x.name}
     end
 
-    @business_highlight = BusinessHighlight.where(:display => true).order(:date).first
+    @business_highlight = BusinessHighlight.where(:display => true).order("date desc").first
   end
 
 end
-
