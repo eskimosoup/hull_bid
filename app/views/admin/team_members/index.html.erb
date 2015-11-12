@@ -1,0 +1,24 @@
+<% title 'Team Members' %>
+
+<div class="admin_functions">
+  <%= link_to "New Team Member", new_admin_team_member_path %>
+</div>
+
+<%= informant_table @team_members, {
+      :headings => [ '', 'Name', 'Category', 'Role', 'Email', 'Phone', 'Board Member', 'Chair', 'Vice Chair', 'Display', '', '', '' ], 
+      :body => [
+        it_sort,
+        :name,
+        :category,
+        :role,
+        lambda{|x| mail_to(x.email) if x.email?},
+        :phone,
+        it_ajax_toggle(:board_member),
+        it_ajax_toggle(:chair),
+        it_ajax_toggle(:vice_chair),
+        it_ajax_toggle(:display),
+        it_edit_images(:image),
+        it_edit,
+        it_destroy
+      ]
+    } %>

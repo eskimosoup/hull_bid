@@ -1,0 +1,25 @@
+<% klass = Article %>
+
+<% if klass.where(:display => true).length > 0 %>
+	<h2>News archive</h2>
+	<% years = klass.years.reverse %>
+	<ol>
+	<li><%= link_to "All (#{klass.where(:display => true).length})", :action => "index", :year => nil, :month => nil %></li>
+	<% years.each do |year| %>
+		<% if params[:year] && params[:year] == year.to_s %>
+			<li><%= link_to "#{year} (#{klass.where(:display => true).year(year).length})", {:action => "index", :year => year}, :class => "current" %></li>
+			<ol>
+				<% klass.months(year).each do |month| %>
+					<% if params[:month] && params[:month] == month.to_s %>
+						<li><%= link_to "#{Date::MONTHNAMES[month]} (#{klass.where(:display => true).year(year).month(month).length})", {:action => "index", :year => year, :month => month}, :class => "current" %></li>	
+					<% else %>
+						<li><%= link_to "#{Date::MONTHNAMES[month]} (#{klass.where(:display => true).year(year).month(month).length})", {:action => "index", :year => year, :month => month} %></li>	
+					<% end %>
+				<% end %>
+			</ol>
+		<% else %>
+			<li><%= link_to "#{year} (#{klass.where(:display => true).year(year).length})", {:action => "index", :year => year} %></li>
+		<% end %>
+	<% end %>
+	</ol>
+<% end %>

@@ -1,0 +1,63 @@
+<div id="page-heading">
+  <h1><%= @page.title %></h1>
+
+  <div id="page-heading-text">
+    At HullBID, our mission is simple. We're here to work with
+    and on behalf of HullBID Members, to make our district a 
+    measurably better place to do business in.
+  </div>
+</div>
+
+<div id="content-left">
+  <% if @current_branch %>
+    <%= render 'navigation' %>
+  <% end %>
+  
+  <% unless @page.team_member.blank? %>
+    <div class="team-member-side">
+      <% if @page.team_member_introduction %>
+        <%= raw @page.team_member_introduction %>
+      <% end %>
+    
+      <% if @page.team_member.image? %>
+        <%= image_tag @page.team_member.image.thumb, :alt => @page.team_member.image_alt %>
+      <% end %>
+      <h3><%= @page.team_member.name %></h3>
+      <% if @page.team_member.phone? %>
+        <p>
+          <%= @page.team_member.phone %>
+        </p>
+      <% end %>
+      <% if @page.team_member.mobile? %>
+        <p>
+          <%= @page.team_member.mobile %>
+        </p>
+      <% end %>
+      <% if @page.team_member.email? %>
+        <p>
+          <%= mail_to @page.team_member.email %>
+        </p>
+      <% end %>
+    </div>  
+  <% end %>
+</div>
+
+<div id="content-main-right">
+  <% if @page.image? %>
+    <%= image_tag @page.image.show %>
+  <% end %>
+
+  <div class="user-content">
+    <%= raw @page.content %>
+  </div>
+  
+	<% unless @page.team_member.blank? %>
+		<div id="page-contact">
+		  <%= render 'page_contact' %>
+		</div>
+	<% end %>
+
+  <%= render 'black_boxes' %>
+</div>
+
+<div class="clear"></div>

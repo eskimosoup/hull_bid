@@ -1,0 +1,175 @@
+<script type="text/javascript">
+
+  var banners = [<%= @banners.map{ |x| x.id }.join(', ') %>];
+  var banner_max = <%= @banners.length - 1 %>;
+  var banner_index = 0;
+
+  function fadeBanner() {
+    $("#banner-image-" + banners[banner_index]).fadeOut(600);
+    
+    if (banner_index < banner_max) { banner_index += 1; } else { banner_index = 0; }
+    $("#banner-image-" + banners[banner_index]).fadeIn(600);
+
+    setTimeout("fadeBanner()" , 6000 );
+  }
+
+  $(document).ready(function() {
+    setTimeout("fadeBanner()", 4000 );
+  } );
+    
+</script>
+
+<div id="home-banners">
+  <% unless @banners.blank? %>
+    <%= link_to(
+      image_tag(@banners.first.image.show, { :alt => @banners.first.name, :title => @banners.first.name }), 
+      @banners.first.link,
+      { :id => "banner-image-#{@banners.first.id}", :class => 'banner-image' }
+    ) %>
+
+    <% @banners[1..-1].each do |banner| %>
+      <%= link_to(
+        image_tag(banner.image.show, { :alt => banner.name, :title => banner.name }), 
+        banner.link,
+        { :id => "banner-image-#{banner.id}", :class => 'banner-image', :style => "display: none;" }
+      ) %>
+    <% end %>
+  <% else %>
+    <%= link_to(image_tag("default-banner.jpg")) %>
+  <% end %>
+</div>
+
+<%= render 'blue_boxes' %>
+
+<div id="home-column-1">
+  <div id="home-contact">
+    <h2>Got something to share?</h2>
+    <h3>We want to hear from you</h3>
+    <p>
+      If you're a business owner in the HullBID district, then you're part
+      of the partnership. To propose a project, add your support to an
+      initiative or to share your views, call 
+      <span class="bold"><%= SITE_SETTINGS['Phone'] %></span>
+      or email
+      <%= mail_to SITE_SETTINGS['Email'], SITE_SETTINGS['Email'] %>
+    </p>
+  </div>
+
+  <div id="home-news">
+    <h2>News</h2>
+    <% if @article %>
+      <p>
+        <%= truncate(@article.summary, :length => 100) %>
+        <%= link_to 'read more', @article %>
+      </p>
+    <% else %>
+      <p>
+        Latest news article goes here, for more information.
+        Latest news article goes here, for more information.
+      </p>
+    <% end %>
+  </div>
+
+  <div id="home-events">
+    <h2>Events</h2>
+    <% if @event %>
+      <p>
+        <%= truncate(@event.summary, :length => 100) %>
+        <%= link_to 'read more', @event %>
+      </p>
+    <% else %>
+      <p>
+        Latest events article goes here, for more information.
+        Latest events article goes here, for more information.
+      </p>
+    <% end %>
+  </div>
+
+  <div id="home-achievement">
+    <h2>What we've achieved</h2>
+    <% if @achievement %>
+      <p>
+        <%= truncate(@achievement.summary, :length => 130) %>
+      </p>
+      <p>
+        <%= link_to 'Click here to read more', @achievement %>
+      </p>
+    <% else %>
+      <p>
+        Latest achievement article introductory text to go here.
+        Latest achievement article introductory text to go here.
+      </p>
+      <p>
+        <%= link_to 'Click here to read more' %>
+      </p>
+    <% end %>
+  </div>
+
+  <div id="home-resources">
+    <h2>Footfall</h2>
+    <p>
+      <%= Date::MONTHNAMES[@footfall_data_entry.month] %>
+      <%= @footfall_data_entry.year %>:
+    </p>
+    <p class="count">
+      <%= number_with_delimiter(@footfall_data_entry.count) %>
+    </p>
+    <p>
+      <%= link_to "View Details", resources_path(:category => 'Footfall') %>
+    </p>
+  </div>
+</div>
+
+<div id="home-column-2">
+  <div id="home-business">
+    <% if @business_highlight %>
+      <div id="home-business-left">
+        <h2>Business highlight</h2>
+        <h3><%= link_to @business_highlight.name, @business_highlight %></h3>
+        <p>
+          <%= @business_highlight.summary %>
+        </p>
+        <p>
+          <%= link_to 'Get a sneak preview here', @business_highlight, :class => 'arrow' %>
+        </p>
+      </div>
+      <%= image_tag @business_highlight.image_1.home %>
+    <% else %>
+      <div id="home-business-left">
+        <h2>Business highlight</h2>
+        <h3>Business highlight article title goes here</h3>
+        <p>
+          Introductory text for the business highlight article goes in place here.
+          Introductory text for the business highlight article goes in place here.
+        </p>
+        <p>
+          <%= link_to 'Get a sneak preview here', '', :class => 'arrow' %>
+        </p>
+      </div>
+      <%= image_tag 'default-business-highlight.jpg' %>
+    <% end %>
+  </div>
+
+  <div id="home-twitter">
+    <%= render "pages/twitter" %>
+  </div>
+
+
+  <div id="home-newsletter">
+  <h2>Monthly e-news</h2>
+  <p>For more news and updates, join out monthly e-news!</p>
+  
+  <form action="http://hullbid.us7.list-manage.com/subscribe/post?u=4d7ac3d580f626a7ec6378107&amp;id=19ba7d7933" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <input type="email" value="" size="30" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Your email address">
+    <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+  </form>
+
+  <div id="mce-responses" class="clear">
+	  <div class="response required email" id="mce-error-response" style="display:none"></div>
+	  <div class="response" id="mce-success-response" style="display:none"></div>
+  </div>
+  <div class="clear"></div>  
+  </div>
+</div>
+
+<div class="clear"></div>

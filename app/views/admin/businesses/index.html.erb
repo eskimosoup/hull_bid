@@ -1,0 +1,24 @@
+<% title Business.model_name.human.pluralize %>
+
+<div class="admin_functions">
+  <%= link_to "New #{ Business.model_name.human }", new_admin_business_path %>
+</div>
+
+<%= render 'admin/shared/search' %>
+
+<%= informant_table @businesses, {
+      :headings => [ :name, :telephone, :email, :website, 'Logo', :display, '', '', '' ], 
+      :body => [
+        :name,
+        :telephone,
+        lambda{|x| x.email.blank? ? "" : mail_to(x.email)},
+        lambda{|x| x.website.blank? ? "" : link_to(x.website, "http://#{x.website}", :target => "_blank")},
+        lambda{|x| image_tag(x.logo.thumb) if x.logo?},
+        it_ajax_toggle(:display),
+        it_edit_images(),
+        it_edit,
+        it_destroy
+      ]
+    } %>
+
+<%= paginate @businesses %>

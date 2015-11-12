@@ -1,0 +1,62 @@
+<script type="text/javascript">
+  var image_max = <%= @image_count %>;
+  var image_index = 1;
+
+  function fadeImage() {
+    $("#business-highlight-image-" + image_index).fadeOut(600);
+    
+    if (image_index < image_max) { image_index += 1; } else { image_index = 1; }
+    $("#business-highlight-image-" + image_index).fadeIn(600);
+
+    setTimeout("fadeImage()" , 6000 );
+  }
+
+  $(document).ready(function() {
+    setTimeout("fadeImage()", 4000 );
+  } );
+</script>
+
+<%= render 'pages/blue_boxes' %>
+
+<div id="content-left">
+  <% unless @business_highlights.blank? %>
+    <div id="left-navigation">
+      <h2>Archive</h2>
+
+      <ol>
+        <% @business_highlights.each do |business_highlight| %>
+          <li><%= link_to business_highlight.name, business_highlight %></li>
+        <% end %>
+      </ol>
+    </div>
+  <% end %>
+</div>
+
+<div id="content-main">
+  <h1><%= title @business_highlight.name %></h1>
+
+  <div id="business-highlight-images">
+    <% unless @business_highlight.image_1.blank? %>
+      <%= image_tag(@business_highlight.image_1.show, {:alt => @business_highlight.image_1_alt,
+        :class => "business-highlight-image", :id => "business-highlight-image-1"}) %>
+    <% end %>
+    <% for i in 2..4 %>
+      <% unless @business_highlight.send("image_#{i}").show.blank? %>
+        <%= image_tag(@business_highlight.send("image_#{i}").show, {:alt => @business_highlight.send("image_#{i}_alt"),
+          :class => "business-highlight-image", :id => "business-highlight-image-#{i}", :style =>"display: none;"})%>    
+      <% end %>
+    <% end %>
+  </div>
+  
+  <p>
+    <span class="article-date"><%= l @business_highlight.date %></span>
+  </p>
+
+  <div class="user-content">
+    <%= raw @business_highlight.main_content %>
+  </div>
+</div>
+
+<%= render 'pages/right_links' %>
+
+<div class="clear"></div>

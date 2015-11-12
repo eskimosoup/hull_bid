@@ -1,0 +1,21 @@
+<fieldset>
+  <legend 
+    class="clickable" 
+    onclick="this.text = $('#seo').is(':visible') ? 'show' : 'hide'; $('#seo').slideToggle()" 
+    style="cursor:pointer;"
+  >
+    SEO
+  </legend>
+  
+  <div id="seo" style="display:none;">
+    <div class="field">
+      <%= f.label :meta_description %><br />
+      <%= f.text_area :meta_description %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :meta_tags %><br />
+      <%= f.text_area :meta_tags %>
+    </div>
+  </div>
+</fieldset>

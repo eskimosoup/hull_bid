@@ -1,0 +1,23 @@
+<%= render 'blue_boxes' %>
+
+<div id="content-main-left">
+  <% if @page.image? %>
+    <%= image_tag @page.image.show_small %>
+  <% end %>
+
+  <h1><%= title @page.title %></h1>
+
+  <div class="user-content">
+    <%= raw @page.content %>
+  </div>
+  
+	<% unless @page.team_member.blank? %>
+		<div id="page-contact">
+		  <%= render 'page_contact' %>
+		</div>
+	<% end %>
+</div>
+
+<%= render 'about_right_links' %>
+
+<div class="clear"></div>

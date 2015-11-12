@@ -1,0 +1,18 @@
+<h2>We're tweeting</h2>
+<% cache "twitter_side", :expires_in => 600  do %>
+
+  <% begin %>
+    <% Twitter.user_timeline(:count => 1).each do |tweet| %>
+      <p>
+        <%= raw tweet.text %>
+        <%= link_to "https://twitter.com/#{tweet.user.screen_name}", :target => "_blank" do %>
+          <%= tweet.created_at.strftime('%H:%M - %d/%m/%Y') %>
+        <% end %>
+      </p>
+    <% end %>
+  <% rescue => e %>
+    <% logger.error "Twitter broke due to: #{e}" %>
+    <p>Twitter is not responding</p>
+  <% end %>
+
+<% end %>

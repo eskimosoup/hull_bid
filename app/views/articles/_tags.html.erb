@@ -1,0 +1,16 @@
+<% klass = Article %>
+
+<% if klass.category_counts.length > 1 %>
+	<br />
+	<h2>News categories</h2>
+	<ol>
+	  <li><%= link_to("All", {:action => "index"}) %></li>
+		<% klass.category_counts.each do |category| %>
+	    <% if params[:category] && params[:category] == category.to_s %>
+			    <li><%= link_to(category, {:action => "index", :category => category.to_s}, :class => "current") %></li>
+	    <% else %>
+			    <li><%= link_to(category, {:action => "index", :category => category.to_s}) %></li>
+	    <% end %>
+		<% end %>
+	</ol>
+<% end %>

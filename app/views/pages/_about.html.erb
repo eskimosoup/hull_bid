@@ -1,0 +1,33 @@
+<%= render 'blue_boxes' %>
+
+<div id="content-left">
+  <% if @current_branch %>
+    <%= render 'navigation' %>
+  <% end %>
+  <%# unless @page.team_member.blank? %>
+    <%#= render 'team_member' %>
+  <%# end %>
+</div>
+
+<div id="content-main">
+  <% if @page.image? %>
+    <%= image_tag @page.image.show_small %>
+  <% end %>
+
+  <h1><%= title @page.title %></h1>
+
+  <div class="user-content">
+    <%= raw @page.content %>
+  </div>
+  
+  <% unless @page.team_member.blank? %>
+    <div id="page-contact">
+      <%= render 'page_contact' %>
+    </div>
+  <% end %>
+  
+</div>
+
+<%= render 'about_right_links' %>
+
+<div class="clear"></div>

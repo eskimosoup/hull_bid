@@ -1,0 +1,26 @@
+<% team_members.each do |team_member| %>
+  <div class="team-member">
+    <% if team_member.image? %>
+      <%= image_tag(team_member.image.index, :alt => team_member.image_alt) %>
+    <% else %>
+      <%= image_tag('blank-member.png', :alt => 'Member image missing') %>
+    <% end %>
+    <h3>
+      <%= team_member.name %>
+      <% unless team_member.vice_chair.blank? %>
+        <br />
+        Vice Chair of HullBID 
+      <% end %>
+    </h3>
+    <p>
+      <span><%= team_member.role %></span>
+    </p>
+    <% if team_member.employer %>
+      <p>
+        <%= team_member.employer %>
+      </p>
+    <% end %>
+  </div>
+<% end %>
+
+<div class="clear"></div>

@@ -1,0 +1,27 @@
+<%= form_for([:admin, @default_gallery_image]) do |f| %>
+
+  <%= f.error_messages %>
+
+  <%= field_set_tag 'Basic' do -%>
+
+    <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name %>
+    </div>
+
+    <%= f.image_field :image %>
+
+  <% end -%>
+
+  <%= field_set_tag 'Settings' do -%>
+    <div class="field">
+      <%= f.label :display %><br />
+      <%= f.check_box :display %>
+    </div>
+  <% end -%>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>

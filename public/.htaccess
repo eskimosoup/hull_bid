@@ -1,0 +1,100 @@
+
+RewriteOptions inherit
+
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^hullbid\.co\.uk$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.hullbid\.co\.uk$
+RewriteRule ^dine_week_participants$ "http\:\/\/www\.hullbid\.co\.uk\/" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^hullbid\.co\.uk$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.hullbid\.co\.uk$
+RewriteRule ^business_highlights$ "http\:\/\/www\.hullbid\.co\.uk\/businesses" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^hullbid\.co\.uk$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.hullbid\.co\.uk$
+RewriteRule ^web\/come_dine_with_us$ "http\:\/\/www\.hullbid\.co\.uk\/" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^hullbid\.co\.uk$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.hullbid\.co\.uk$
+RewriteRule ^web\/feedback$ "http\:\/\/www\.hullbid\.co\.uk\/" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^hullbid\.co\.uk$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.hullbid\.co\.uk$
+RewriteRule ^web\/rss$ "http\:\/\/www\.hullbid\.co\.uk\/rss" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^hullbid\.co\.uk$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.hullbid\.co\.uk$
+RewriteRule ^page\/disclaimer$ "http\:\/\/www\.hullbid\.co\.uk\/pages\/disclaimer" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^hullbid\.co\.uk$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.hullbid\.co\.uk$
+RewriteRule ^page\/christmas$ "http\:\/\/www\.christmasinhull\.co\.uk\/" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^hullbid\.co\.uk$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.hullbid\.co\.uk$
+RewriteRule ^web\/site_map$ "http\:\/\/www\.hullbid\.co\.uk\/site_map" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^hullbid\.co\.uk$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.hullbid\.co\.uk$
+RewriteRule ^page\/privacy\-policy$ "http\:\/\/www\.hullbid\.co\.uk\/pages\/privacy\-policy" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^hullbid\.co\.uk$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.hullbid\.co\.uk$
+RewriteRule ^page\/evening\-economy$ "http\:\/\/www\.hullbid\.co\.uk\/pages\/what\-we\-do" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^hullbid\.co\.uk$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.hullbid\.co\.uk$
+RewriteRule ^page\/contact\-us$ "http\:\/\/www\.hullbid\.co\.uk\/pages\/contact\-us" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^hullbid\.co\.uk$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.hullbid\.co\.uk$
+RewriteRule ^page\/archived\-newsletters$ "http\:\/\/www\.hullbid\.co\ \.uk\/" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^hullbid\.co\.uk$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.hullbid\.co\.uk$
+RewriteRule ^page\/marketing\-and\-events$ "http\:\/\/www\.hullbid\.co\.uk\/pages\/what\-we\-do" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^hullbid\.co\.uk$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.hullbid\.co\.uk$
+RewriteRule ^page\/dine\-week$ "http\:\/\/www\.hullbid\.co\ \.uk\/" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^hullbid\.co\.uk$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.hullbid\.co\.uk$
+RewriteRule ^page\/what\-we\-do$ "http\:\/\/www\.hullbid\.co\ \.uk\/pages\/what\-we\-do" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^hullbid\.co\.uk$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.hullbid\.co\.uk$
+RewriteRule ^page\/about\-hull\-bid$ "http\:\/\/www\.hullbid\.co\.uk\/pages\/about\-hullbid" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^hullbid\.co\.uk$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.hullbid\.co\.uk$
+RewriteRule ^page\/safety\-and\-security$ "http\:\/\/www\.hullbid\.co\ \.uk\/pages\/what\-we\-do" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^hullbid\.co\.uk$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.hullbid\.co\.uk$
+RewriteRule ^page\/hull\-bid\-levy$ "http\:\/\/www\.hullbid\.co\.uk\/pages\/hull\-bid\-levy" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^hullbid\.co\.uk$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.hullbid\.co\.uk$
+RewriteRule ^page\/signage\-and\-acc\ ess$ "http\:\/\/www\.hullbid\.co\ \.uk\/pages\/what\-we\-do" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^hullbid\.co\.uk$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.hullbid\.co\.uk$
+RewriteRule ^page\/hull\-bid\-group\-meetings$ "http\:\/\/www\.hullbid\.co\.uk\/pages\/hull\-bid\-group\-meetings" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^hullbid\.co\.uk$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.hullbid\.co\.uk$
+RewriteRule ^page\/cleanliness\-and\-street\-maintenance$ "http\:\/\/www\.hullbid\.co\.uk\/pages\/what\-we\-do" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^hullbid\.co\.uk$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.hullbid\.co\.uk$
+RewriteRule ^web\/contact_us$ "http\:\/\/www\.hullbid\.co\.uk\/pages\/contact\-us" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^hullbid\.co\.uk$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.hullbid\.co\.uk$
+RewriteRule ^page\/business\-network\-lunches$ "http\:\/\/www\.hullbid\.co\.uk\/pages\/what\-we\-do" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^hullbid\.co\.uk$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.hullbid\.co\.uk$
+RewriteRule ^businesses\/index\/?(.*)$ "http\:\/\/www\.hullbid\.co\.uk\/businesses$1" [R=301,L]
+

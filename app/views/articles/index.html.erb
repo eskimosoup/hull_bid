@@ -1,0 +1,46 @@
+<%= render 'pages/blue_boxes' %>
+
+<div id="content-left">
+  <div id="left-navigation">
+    <%= render "dates" %>
+	  <%= render "tags" %>
+  </div>
+</div>
+
+<div id="content-main">
+	<% title @title %>
+  <% unless @articles.blank? %>
+    <% @articles.each do |article| %>
+      <div class="article">
+        <div class="article-date"><%= article.date %></div>
+        <% unless article.image.index.blank? %>
+          <%= image_tag article.image.index %>
+
+          <div class="article-details article-has-image">
+            <h3><%= link_to article.headline, article %></h3>
+            <p>
+              <%= article.summary %>
+            </p>
+            <%= link_to "read more", article %>
+          </div>
+        <% else %>
+          <div class="article-details">
+            <h3><%= link_to article.headline, article %></h3>
+            <p>
+              <%= article.summary %>
+            </p>
+            <%= link_to "read more", article %>
+          </div>
+        <% end %>
+        <div class="clear"></div>
+      </div>
+    <% end %>
+  <% else %>
+    There are currently no articles to display
+  <% end %>
+  <%= paginate @articles %>
+</div>
+
+<%= render 'pages/right_links' %>
+
+<div class="clear"></div>

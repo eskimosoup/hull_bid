@@ -1,0 +1,29 @@
+<%= render 'pages/blue_boxes' %>
+  
+<div id="content-left">
+  <div id="left-navigation">
+    <%= render "dates" %>
+	  <%= render "tags" %>
+  </div>
+</div>
+
+<div id="content-main">
+  <h1><%= title @article.headline %></h1>
+  <% unless @article.image.show.blank? %>
+    <div class="article-image">
+      <%= image_tag @article.image.show, :alt => @article.image_alt %>
+    </div>
+  <% end %>
+  
+  <p>
+    <span class="article-date"><%= @article.date %></span>
+  </p>
+
+  <div class="user-content">
+    <%= raw @article.main_content %> 
+  </div>
+</div>
+
+<%= render 'pages/right_links' %>
+
+<div class="clear"></div>

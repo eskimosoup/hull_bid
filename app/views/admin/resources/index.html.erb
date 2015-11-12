@@ -1,0 +1,22 @@
+<% title Resource.model_name.human.pluralize %>
+
+<div class="admin_functions">
+  <%= link_to "New #{ Resource.model_name.human }", new_admin_resource_path %>
+</div>
+
+<%= render 'admin/shared/search' %>
+
+<%= informant_table @resources, {
+      :headings => [ :name, :summary, :document, :link, :display, '', '' ], 
+      :body => [
+        :name,
+        it_shorten(:summary),
+        lambda{|x| link_to(x.document_title, x.document.url, :target => '_blank') if x.document?},
+        lambda{|x| link_to(x.link, x.link, :target => '_blank') if x.link?},
+        it_ajax_toggle(:display),
+        it_edit,
+        it_destroy
+      ]
+    } %>
+
+<%= paginate @resources %>

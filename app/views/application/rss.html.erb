@@ -1,0 +1,40 @@
+<%= render 'pages/blue_boxes' %>
+
+<div id="content-main-left">
+	<h1><%= title("RSS Feeds") %></h1>
+	<h2>What is RSS?</h2>
+	<p>RSS stands for Really Simple Syndication. RSS provides a fast and effective way of keeping up-to-date with your favourite sites through web feeds. Whenever new content is added to the sites, these feeds are automatically updated.</p>
+	<p>An RSS reader (or news aggregator) collects, updates and displays RSS feeds by showing the latest headlines, a brief summary and linking back to the source page.</p>
+	<p>This process saves you from constantly having to revisit your favourite sites to look for new content</p>
+	<h2>Our Feeds</h2>
+	<ul>
+		<li><%= link_to "News", articles_url(:rss), :target => "_blank" %></li>
+		<li><%= link_to "Events", events_url(:rss), :target => "_blank" %></li>
+	</ul>
+  <br />
+	<h2>RSS Readers</h2>
+	<p>Here are a few links to some readers...</p>
+  <h3>Windows</h3>
+	<ul>
+		<li><a href="http://www.feedreader.com/" target="_blank">FeedReader</a></li>
+		<li><a href="http://www.newsgator.com/Individuals/FeedDemon/" target="_blank">FeedDemon</a></li>
+	</ul>
+  <br />
+	<h3>Mac OS X</h3>
+	<ul>
+		<li><a href="http://www.utsire.com/shrook/" target="_blank">Shrook</a></li>
+		<li><a href="http://vienna-rss.sourceforge.net/vienna2.php" target="_blank">Vienna</a></li>
+		<li><a href="http://www.newsfirerss.com/" target="_blank">NewsFire</a></li>
+	</ul>
+  <br />
+	<h3>Web-based</h3>
+	<ul>
+		<li><a href="http://www.google.co.uk/reader/view/" target="_blank">Google Reader</a></li>
+		<li><a href="http://www.bloglines.com/" target="_blank">Bloglines</a></li>
+		<li><a href="https://www.newsgator.com/ngs/order1.aspx" target="_blank">NewsGator</a></li>
+	</ul>
+</div>
+
+<%= render 'pages/right_links' %>
+
+<div class="clear"></div>

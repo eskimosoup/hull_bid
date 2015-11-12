@@ -1,0 +1,17 @@
+<%= render 'pages/blue_boxes' %>
+
+<div id="content-main-left">
+  <h1><%= title "Site Map" %></h1>
+  
+  <ul>
+    <% @branches.each do |branch| %>
+      <li>
+        <%= ("&nbsp;&nbsp;&nbsp;&nbsp;" * branch.depth).html_safe %><%= link_to branch.name, branch.destination %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<%= render 'pages/right_links' %>
+
+<div class="clear"></div>

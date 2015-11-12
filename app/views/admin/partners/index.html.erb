@@ -1,0 +1,18 @@
+<% title Partner.model_name.human.pluralize %>
+
+<div class="admin_functions">
+  <%= link_to "New #{ Partner.model_name.human }", new_admin_partner_path %>
+</div>
+
+<%= informant_table @partners, {
+      :headings => [ '', 'Name', 'Website', 'Display', '', '', '' ], 
+      :body => [
+        it_sort,
+        :name,
+        lambda{|x| x.website.blank? ? "" : link_to(x.website, "http://#{x.website}", :target => "_blank")},
+        it_ajax_toggle(:display),
+        it_edit_images(:logo),
+        it_edit,
+        it_destroy
+      ]
+    } %>

@@ -1,0 +1,80 @@
+<%= form_for([:admin, @business]) do |f| %>
+
+  <%= f.error_messages %>
+
+  <%= field_set_tag 'Basic' do -%>
+    <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.text_field :email %>
+    </div>
+
+    <div class="field">
+      <%= f.label :telephone %><br />
+      <%= f.text_field :telephone %>
+    </div>
+
+    <div class="field">
+      <%= f.label :website %><br />
+      <%= f.text_field :website %>
+    </div>
+  <% end -%>
+
+  <%= field_set_tag 'Address' do -%>
+    <div class="field">
+      <%= f.label :address_line_1 %><br />
+      <%= f.text_field :address_line_1 %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :address_line_2 %><br />
+      <%= f.text_field :address_line_2 %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :address_line_3 %><br />
+      <%= f.text_field :address_line_3 %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :town %><br />
+      <%= f.text_field :town %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :postcode %><br />
+      <%= f.text_field :postcode %>
+    </div>
+    
+  <% end -%>
+  
+	<%= field_set_tag 'Logo' do -%>
+    <%= f.image_field :logo, :alt => true %>
+  <% end -%>
+  
+  <%= field_set_tag 'Categories' do -%> 
+  	<p class="admin_note">
+  		Type a comma seperated list of categories for this news article here.  Press ',' between each entry.
+  		Or select from recently used categories below.
+  	</p>
+    <div class="field">
+  	  <%= f.tag_field :categories %>
+    </div> 
+  <% end %>
+  
+  <%= field_set_tag 'Settings' do -%>
+    <div class="field">
+      <%= f.label :display %><br />
+      <%= f.check_box :display %>
+    </div>    
+  <% end -%>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  
+<% end %>					

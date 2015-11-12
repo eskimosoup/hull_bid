@@ -1,0 +1,27 @@
+<%= form_for([:admin, @footfall_data_entry]) do |f| %>
+
+  <%= f.error_messages %>
+
+  <%= field_set_tag 'Basic' do -%>
+    <div class="field">
+      <%= f.label :year %><br />
+      <%= f.select :year, options_for_select((FootfallDataEntry.order(:year).select('DISTINCT year').first.year..Date.today.year).to_a, :selected => @footfall_data_entry.year) %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :month %><br />
+      <%= f.select :month, Date::MONTHNAMES.each_with_index.map{|x, i| [x, i]}, :selected => @footfall_data_entry.month %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :count %><br />
+      <%= f.number_field :count %>
+    </div>
+    
+  <% end -%>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  
+<% end %>

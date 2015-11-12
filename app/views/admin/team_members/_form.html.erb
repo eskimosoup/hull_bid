@@ -1,0 +1,79 @@
+<%= form_for([:admin, @team_member]) do |f| %>
+
+  <%= f.error_messages %>
+
+  <%= field_set_tag 'Basic' do -%>
+    <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :role %><br />
+      <%= f.text_field :role %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :employer %><br />
+      <%= f.text_field :employer %>
+    </div>
+        
+  <% end -%>
+  
+  <%= field_set_tag 'Hull Bid Options' do -%>
+    <div class="field">
+      <%= f.label :board_member %><br />
+      <%= f.check_box :board_member %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :chair %><br />
+      <%= f.check_box :chair %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :vice_chair %><br />
+      <%= f.check_box :vice_chair %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :category %><br />
+      <%= f.select :category, options_for_select(TeamMember::CATEGORIES, :selected => f.object.category) %>
+    </div>
+  
+  <% end -%>
+  
+  
+  <%= field_set_tag 'Contact Details (optional)' do -%>
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.text_field :email %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :phone %><br />
+      <%= f.text_field :phone %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :mobile %><br />
+      <%= f.text_field :mobile %>
+    </div> 
+  <% end -%>
+
+  <%= field_set_tag 'Images' do -%>
+    <%= f.image_field :image, :alt => true %>
+  <% end -%>
+
+  <%= field_set_tag 'Settings' do -%>
+    <div class="field">
+      <%= f.label :display %><br />
+      <%= f.check_box :display %>
+    </div>    
+  <% end -%>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  
+<% end %>					

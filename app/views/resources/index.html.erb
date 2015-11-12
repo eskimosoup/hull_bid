@@ -1,0 +1,84 @@
+<%= render 'pages/blue_boxes' %>
+
+<div id="content-left">
+  <div id="left-navigation">
+    <h2>Resource filter</h2>
+    <ol>
+      <% if params[:category] == "Footfall" %>
+        <li><%= link_to "Footfall", resources_path(:category => "Footfall"), :class => 'current' %></li>        
+      <% else %>
+        <li><%= link_to "Footfall", resources_path(:category => "Footfall") %></li>
+      <% end %>
+      <% @resource_categories.each do |category| %>
+        <% if category.name == params[:category] %>
+          <li><%= link_to category.name, resources_path(:category => category.name), :class => 'current' %></li>
+        <% else %>
+          <li><%= link_to category.name, resources_path(:category => category.name) %></li>
+        <% end %>
+      <% end %>
+    </ol>
+  </div>
+</div>
+
+<div id="content-main">
+  <%= image_tag 'resources-page.jpg' %>
+  <h1>HullBID resources</h1>
+  <% title @title %>
+  <% unless @resources.blank? %>
+    <% @resources.each do |resource| %>
+      <div class="resource">
+        <h3><%= resource.name %></h3>
+
+        <% if resource.summary? %>
+          <p>
+            <%= resource.summary %>
+          </p>
+        <% end %>
+        <% if resource.link? %>
+          <p>
+            <%= link_to(resource.link, resource.link, :target => "_blank") %>
+          </p>
+        <% end %>
+        <% if resource.document? %>
+          <p>
+            <%= link_to('Download', resource.document.url, :target => "_blank") %>
+          </p>
+        <% end %>
+      </div>
+    <% end %>
+    <p>
+      You acknowledge and agree that, as you have chosen to enter the linked website we are not responsible for the availability of such external sites or resources,
+      and do not review or endorse and shall not be responsible or liable, directly or indirectly, for (i) the privacy practices of such websites,
+      (ii) the content of such websites, including (without limitation) any advertising, content, products,
+      goods or other materials or services on or available from such websites or resources or (iii) the use that others make of these websites or resources,
+      nor for any damage, loss or offence caused or alleged to be caused by, or in connection with,
+      the use of or reliance on any such advertising, content, products, goods or other materials or services available on such external websites or resources.
+    </p>
+  <% else %>
+    <% if params[:category] == "Footfall" %>
+      <!-- not sure why it's raw not escape_javascript in this but meh -->
+      <% content_for :head do %>
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+        <script type="text/javascript">
+          google.load("visualization", "1", {packages:["corechart"]});
+          google.setOnLoadCallback(drawBarChart);
+          function drawBarChart() {
+            var data = new google.visualization.arrayToDataTable(<%= raw FootfallDataEntry.data.to_json %>);
+            var options = {};
+            var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+            chart.draw(data, options);
+            
+          }
+        </script>
+      <% end %>
+      <h2><strong>Footfall</strong> across the city centre</h2>
+      <div id="chart_div" style="width: 437px; height: 500px;"></div>
+    <% else %>
+      <%= raw @page.content %>    
+    <% end %>  
+  <% end %>
+</div>
+
+<%= render 'pages/right_links' %>
+
+<div class="clear"></div>

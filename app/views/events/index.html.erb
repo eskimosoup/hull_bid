@@ -1,0 +1,69 @@
+<%= render 'pages/blue_boxes' %>
+
+<div id="content-left">
+  <div id="left-navigation">
+    <%= render "dates" %>
+    <%= render "tags" %>
+  </div>
+</div>
+
+<div id="content-main">
+  <% unless @default_gallery.blank? %>
+    <% unless @default_gallery.image.blank? %>
+      <%= link_to event_galleries_path, :id => "event-gallery" do  %>
+        <%= image_tag(@default_gallery.image.show, :alt => 'Photo Gallery') %>
+        <h3>Gallery: view past events</h3>
+      <% end %>
+    <% end %>
+  <% else %>
+    <%= link_to event_galleries_path, :id => "event-gallery" do  %>
+        <%= image_tag('photo-gallery.jpg', :alt => 'Photo Gallery') %>
+        <h3>Gallery: view past events</h3>
+      <% end %>
+  <% end %>
+    <div class="clear"></div>
+
+
+  <% unless @events.blank? %>
+    <h1><%= title @title %></h1>
+
+    <% @events.each do |event| %>
+      <div class="article">
+        <div class="article-date">
+          <% if event.end_date.blank? %>
+            <%= l event.start_date %>
+          <% else %>
+            <%= l event.start_date %> - <%= l event.end_date %>
+          <% end %>
+        </div>
+        <% unless event.image.index.blank? %>
+          <%= image_tag event.image.index %>
+
+          <div class="article-details article-has-image">
+            <h3><%= link_to event.headline, event %></h3>
+            <p>
+              <%= event.summary %>
+            </p>
+            <%= link_to "read more", event %>
+          </div>
+        <% else %>
+          <div class="article-details">
+            <h3><%= link_to event.headline, event %></h3>
+            <p>
+              <%= event.summary %>
+            </p>
+            <%= link_to "read more", event %>
+          </div>
+        <% end %>
+        <div class="clear"></div>
+      </div>
+    <% end %>
+  <% else %>
+    There are currently no events to display
+  <% end %>
+  <%= paginate @events %>
+</div>
+
+<%= render 'pages/right_links' %>
+
+<div class="clear"></div>

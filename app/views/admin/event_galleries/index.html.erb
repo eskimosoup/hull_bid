@@ -1,0 +1,16 @@
+<% title EventGallery.model_name.human.pluralize %>
+
+<div class="admin_functions">
+  <%= link_to "New #{ EventGallery.model_name.human }", new_admin_event_gallery_path %>
+</div>
+
+<%= informant_table @event_galleries, {
+      :headings => [ '', 'Event', 'Name', 'Display', '', '', '' ], 
+      :body => [ it_sort,
+                lambda{|x| x.event.headline if x.event},
+                :name,
+                it_ajax_toggle(:display),
+                lambda{|x| link_to("Images (#{x.event_gallery_images.count})", admin_event_gallery_event_gallery_images_path(x))},                
+                it_edit,
+                it_destroy ]
+    } %>

@@ -1,0 +1,33 @@
+<div id="header">
+  <%= link_to '', root_url, :title => SITE_SETTINGS['Name'], :id => 'header-logo' %>
+
+  <div id="header-links">
+    <%= link_to 'Site Map', site_map_path %> |
+    <%= link_to 'RSS', rss_path, :class => 'rss-link' %>
+  </div>
+
+  <div id="header-hotline">
+    <span class="blue">Bid Hotline</span>
+    <span class="bold"><%= SITE_SETTINGS['Phone'] %></span>
+  </div>
+
+  <ol id="header-navigation">
+    <% if @current_branch %>
+      <% top_branch = (@current_branch.depth == 0 ? @current_branch : @current_branch.parent) %>
+    <% else %>
+      <% top_branch = nil %>
+    <% end %>
+
+    <% (branches = Willow::Branch.where(:tree => 'Main Navigation').roots.order(:position)).each do |branch| %>
+      <% if branch == top_branch %>
+        <li><%= link_to branch.name, branch.destination, :class => 'current' %></li>
+      <% else %>
+        <li><%= link_to branch.name, branch.destination %></li>
+      <% end %>
+
+      <% unless branch == branches.last %>
+        |
+      <% end %>
+    <% end %>
+  </ol>
+</div>

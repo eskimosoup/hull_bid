@@ -1,0 +1,22 @@
+<% title 'Business Highlights' %>
+
+<div class="admin_functions">
+  <%= link_to 'New Business Highlight', new_admin_business_highlight_path %>
+</div>
+
+<%= render 'admin/shared/search' %>
+
+<%= informant_table @business_highlights, {
+      :headings => [ :name, :summary, :date, :display, '', '', '' ], 
+      :body => [ 
+        :name, 
+        it_shorten(:summary), 
+        lambda{|x| l x.date}, 
+        it_ajax_toggle(:display), 
+        it_edit_images(:image_1),
+        it_edit, 
+        it_destroy 
+      ]
+    } %>
+
+<%= paginate @business_highlights %>

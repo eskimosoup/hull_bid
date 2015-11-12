@@ -1,0 +1,37 @@
+<%= render 'pages/blue_boxes' %>
+
+<div id="content-main-left">
+  <h1><%= title "Contact HullBID" %></h1>
+  <%= raw @page.content %>
+
+  <h2>The HULLBID team</h2>
+  <div id="team-members">
+    <% TeamMember.where(:board_member => false).each do |team_member| %>
+      <div class="team-member">
+        <% if team_member.image? %>
+          <%= image_tag team_member.image.index, :alt => team_member.image_alt %>
+        <% else %>
+          <%= image_tag('blank-member.png', :alt => 'Member image missing') %>
+        <% end %>
+
+        <h3><%= team_member.name %></h3>
+        <p>
+          <span><%= team_member.role %></span>
+          <% if team_member.phone? %>
+            <br /><%= team_member.phone %>
+          <% end %>
+
+          <% if team_member.mobile? %>
+            <br /><%= team_member.mobile %>
+          <% end %>
+          <br /><%= mail_to team_member.email %>
+        </p>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<%= render 'pages/right_links' %>
+
+<div class="clear"></div>
+

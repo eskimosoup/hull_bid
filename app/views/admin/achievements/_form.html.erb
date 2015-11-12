@@ -1,0 +1,59 @@
+<%= form_for([:admin, @achievement]) do |f| %>
+
+  <%= f.error_messages %>
+
+  <%= field_set_tag 'Basic' do -%>
+    <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="field">
+      <%= f.label :date %><br />
+      <% date = (f.object.date || Date.today) %>
+      <%= f.text_field :date, :class => "datepicker", :value => l(date) %>
+    </div>
+
+    <div class="field">
+      <%= f.label :summary %><br />
+      <%= f.text_area :summary %>
+    </div>
+  <% end %>
+  
+  <%= field_set_tag 'Content' do -%>
+    <div class="field">
+      <%= f.label :main_content %><br />
+      <%= f.text_area :main_content, :class => 'tinymce' %>
+    </div>    
+  <% end -%>
+
+  <%= field_set_tag 'Images' do -%>
+    <%= f.image_field :image, :alt => true %>
+  <% end -%>
+  
+  <%# At the minute this module appears on the front in the style of business highlights. 
+      Uncomment below if you are changing it to be in the style of news. %>
+  <!--
+  <%#= field_set_tag 'Categories' do -%> 
+  	<p class="admin_note">
+  		Type a comma seperated list of categories for this news article here.  Press ',' between each entry.
+  		Or select from recently used categories below.
+  	</p>
+    <div class="field">
+  	  <%#= f.tag_field :tag %>
+    </div>
+  <%# end %>
+  -->
+
+  <%= field_set_tag 'Settings' do -%>
+    <div class="field">
+      <%= f.label :display %><br />
+      <%= f.check_box :display %>
+    </div>    
+  <% end -%>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  
+<% end %>					

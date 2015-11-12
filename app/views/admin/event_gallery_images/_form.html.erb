@@ -1,0 +1,23 @@
+<%= form_for([:admin, @event_gallery, @event_gallery_image]) do |f| %>
+
+  <%= f.error_messages %>
+
+  <%= field_set_tag 'Images' do -%>
+    <%= f.hidden_field :event_gallery_id %>   
+    <div class="field"> 
+      <%= f.image_field :image, :alt => true %>
+    </div>
+  <% end -%>
+  
+  <%= field_set_tag 'Settings' do -%>
+    <div class="field"> 
+      <%= f.label :display %>
+      <%= f.check_box :display %>
+    </div>
+  <% end -%>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  
+<% end %>					

@@ -1,0 +1,14 @@
+<% title 'Footfall Data Entries' %>
+
+<div class="admin_functions">
+  <%= link_to 'New Footfall Data Entry', new_admin_footfall_data_entry_path %>
+</div>
+
+<%= render 'admin/shared/search' %>
+
+<%= informant_table @footfall_data_entries, {
+      :headings => [ :year, :month, :count, '', '' ], 
+      :body => [ :year,  lambda{|x| Date::MONTHNAMES[x.month]}, :count, it_edit, it_destroy ]
+    } %>
+
+<%= paginate @footfall_data_entries %>

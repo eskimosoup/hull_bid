@@ -1,0 +1,32 @@
+<% title EventGalleryImage.model_name.human.pluralize %>
+
+<div class="admin_functions">
+  <%= link_to 'Back', admin_event_galleries_path %>
+  <%= link_to "New #{ EventGalleryImage.model_name.human }", new_admin_event_gallery_event_gallery_image_path(@event_gallery) %>
+</div>
+
+<%= form_for([:admin, @event_gallery, EventGalleryImage.new({:event_gallery_id => @event_gallery.id})], :html => { :multipart => true, :id => "image-upload" }) do |f| %>
+  <%= f.hidden_field :event_gallery_id %>
+  <%= f.label :image, "Upload images:" %><br />
+  <%= f.file_field :image, {:multiple => true, :name => "event_gallery_image[image]"} %>
+  <div class="upload">
+    Total Progress
+   <div class="progress"><div id="global-progress-bar" class="bar" style="width: 0%"></div></div>
+</div>
+<% end %>
+
+<script type="text/javascript">
+  $("#image_image").attr("name", "event_gallery_image[image]");
+</script>
+
+<script id="template-upload" type="text/x-tmpl">
+<div class="upload">
+  {%=o.name%}
+  <div class="progress"><div class="bar" style="width: 0%"></div></div>
+</div>
+</script>
+
+<div id="images">
+  <%= render @event_gallery_images %>
+</div>
+<div class="clear"></div>

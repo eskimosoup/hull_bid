@@ -1,0 +1,28 @@
+<% if @page.team_member_heading %>
+  <h2><%= @page.team_member_heading %></h2>
+<% end %>
+
+<% if @page.team_member_introduction %>
+  <p>
+    <%= @page.team_member_introduction %>
+  </p>
+<% end %>
+
+<% if @page.team_member.image? %>
+  <%= image_tag @page.team_member.image.index, :alt => @page.team_member.image_alt %>
+<% end %>
+
+<h3><%= @page.team_member.name %></h3>
+
+<% if @page.team_member.phone? %>
+  <%= @page.team_member.phone %><br />
+<% end %>
+
+<% if @page.team_member.mobile? %>
+  <%= @page.team_member.mobile %><br />
+<% end %>
+
+<% if @page.team_member.email? %>
+  <%= mail_to @page.team_member.email, @page.team_member.email %>
+<% end %>
+<div class="clear"></div>

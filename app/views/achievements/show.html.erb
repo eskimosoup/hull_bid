@@ -1,0 +1,41 @@
+<%= render 'pages/blue_boxes' %>
+
+<div id="content-left">
+  <% unless @achievements.blank? %>
+    <div id="left-navigation">
+      <h2>Archive</h2>
+
+      <ol>
+        <% @achievements.each do |achievement| %>
+          <li><%= link_to achievement.name, achievement %></li>
+        <% end %>
+      </ol>
+    </div>
+  <% end %>
+</div>
+
+<div id="content-main">
+  <h1><%= title @achievement.name %></h1>
+
+  <% unless @achievement.image.blank? %>
+    <div id="business-highlight-images">
+      <%= image_tag(@achievement.image.show, {
+            :alt => @achievement.image_alt,
+            :class => "business-highlight-image", 
+            :id => "business-highlight-image-1"
+          }) %>
+    </div>
+  <% end %>
+
+  <p>
+    <span class="article-date"><%= l @achievement.date %></span>
+  </p>
+
+  <div class="user-content">
+    <%= raw @achievement.main_content %>
+  </div>
+</div>
+
+<%= render 'pages/right_links' %>
+
+<div class="clear"></div>

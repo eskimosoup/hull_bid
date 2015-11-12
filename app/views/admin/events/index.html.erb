@@ -1,0 +1,23 @@
+<% title Event.model_name.human.pluralize %>
+
+<div class="admin_functions">
+  <%= link_to "New #{ Event.model_name.human }", new_admin_event_path %>
+</div>
+
+<%= render 'admin/shared/search' %>
+
+<%= informant_table @events, {
+      :headings => [ :headline, :summary, :start_date, :end_date, :display, '', '', '' ], 
+      :body => [
+        :headline,
+        it_shorten(:summary),
+        lambda{|x| l x.start_date},
+        lambda{|x| l x.end_date if x.end_date?},
+        it_ajax_toggle(:display),
+        it_edit_images(:image),
+        it_edit,
+        it_destroy
+      ]
+    } %>
+
+<%= paginate @events %>

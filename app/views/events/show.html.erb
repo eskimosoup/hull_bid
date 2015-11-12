@@ -1,0 +1,39 @@
+<%= render 'pages/blue_boxes' %>
+
+<div id="content-left">
+  <div id="left-navigation">
+    <%= render "dates" %>
+	  <%= render "tags" %>
+  </div>
+</div>
+
+<div id="content-main">
+  <h1><%= title @event.headline %></h1>
+
+  <% unless @event.image.show.blank? %>
+    <div class="event-image">
+      <%= image_tag @event.image.show, :alt => @event.image_alt %>
+    </div>
+  <% end %>
+  <p>
+    <span class="article-date">
+			<% if @event.end_date.blank? %>
+				<%= l @event.start_date %>
+			<% else %>
+				<%= l @event.start_date %> - <%= l @event.end_date %>
+			<% end %>
+		</span>
+  </p>
+
+  <div class="user-content">
+    <%= raw @event.main_content %>
+  </div>
+	
+	<% unless @event.event_gallery.blank? %>
+		<%= link_to "View Gallery", event_gallery_path(@event.event_gallery) %>
+	<% end %>
+</div>
+
+<%= render 'pages/right_links' %>
+
+<div class="clear"></div>

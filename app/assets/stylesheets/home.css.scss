@@ -1,0 +1,169 @@
+#home-banners {
+  position: relative;
+  margin-top: 12px;
+  width: 960px;
+  height: 282px;
+  background: black;
+
+  img {
+    position: absolute;
+    top: 0;
+    width: 960px;
+    height: 265px;
+  }
+}
+
+#home-blue-boxes {
+  margin-top: 15px;
+  height: 195px;
+}
+
+a.home-blue-box {
+  float: left;
+  display: block;
+  margin-right: 16px;
+  padding: 16px;
+  width: 196px;
+  height: 163px;
+  font-size: 1.4em;
+  line-height: 1.1;
+  color: white;
+  background: #01aef0 image-url("blue-box-bg.png") no-repeat bottom right;
+  cursor: pointer;
+
+  p { margin-top: 10px; }
+
+  &:hover {
+    color: white;
+    background-color: #0193ca;
+  }
+}
+
+.home-header {
+  font-family: "museo-slab", Arial, Helvetica, sans-serif;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+#home-column-1, #home-column-2 {
+  float: left;
+  margin-bottom: 30px;
+  width: 472px;
+
+  div {
+    float: left;
+    margin-top: 16px;
+    padding: 14px;
+  }
+
+  p {
+    font-size: 1.15em;
+    line-height: 1.3;
+  }
+}
+
+#home-column-2 {
+  margin-left: 16px;
+}
+
+#home-contact { 
+  width: 444px; 
+  height: 166px; 
+  background: white; 
+}
+
+#home-news { 
+  width: 200px; 
+  height: 126px;
+  background: white; 
+}
+
+#home-events {
+  margin-left: 16px;
+  width: 200px; 
+  height: 126px;
+  background: white;
+}
+
+#home-achievement { 
+  width: 300px; 
+  height: 126px;
+  background: white; 
+}
+
+#home-resources { 
+  margin-left: 16px;
+  width: 100px; 
+  height: 126px;
+  background: white;
+  
+  p.count{
+    font-size: 1.4em;
+    margin-bottom: 10px;
+  }
+  
+}
+
+#home-business { 
+  width: 444px; 
+  height: 205px;
+  background: white;
+
+  img { 
+    float: right; 
+    margin-top: 4px;
+  }
+}
+
+#home-twitter, #home-newsletter { 
+  width: 444px;
+  color: white;
+
+  h2 {
+    margin-left: 14px;
+    padding-left: 36px;
+  }
+
+  p, form {
+    margin-right: 30px;
+    margin-left: 50px;
+  }
+}
+
+#home-twitter { 
+  height: 126px; 
+  background: black;
+  h2 { background: image-url('twitter.png') no-repeat left; }
+}
+
+#home-newsletter { 
+  height: 87px; 
+  background: #01aef0;
+
+  h2 { 
+   line-height: 1.1;
+   background: image-url('newsletter.png') no-repeat left; 
+  }
+  
+  .form-fields {
+	margin-top:0px;
+	padding-top:0px;
+  }
+  
+  form {
+	margin-left:50px;
+  }
+  
+  input {
+    margin-top: 5px;
+    padding: 4px;
+  }
+}
+
+
+
+#home-business-left {
+  width: 280px;
+  margin: 0 !important;
+  padding: 0 !important;
+}

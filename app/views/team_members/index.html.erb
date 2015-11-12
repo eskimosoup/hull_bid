@@ -1,0 +1,100 @@
+<div id="team-blue-boxes">
+  <a class="team-blue-box" href="<%= page_path('we-communicate') %>">
+    <div class="team-header dark-blue">
+      We
+    </div>
+    <div class="team-header">
+      communicate
+    </div>
+    <% unless @communicators.blank? %>
+      <% @communicators.each do |team_member| %>
+        <p><%= team_member.name %></p>
+      <% end %>
+    <% end %>
+  </a>
+
+  <a class="team-blue-box" href="<%= page_path('we-innovate') %>">
+    <div class="team-header dark-blue">
+      We
+    </div>
+    <div class="team-header">
+      innovate
+    </div>
+    <% unless @innovators.blank? %>
+      <% @innovators.each do |team_member| %>
+        <p><%= team_member.name %></p>
+      <% end %>
+    <% end %>
+  </a>
+
+  <a class="team-blue-box" href="<%= page_path('we-promote') %>">
+    <div class="team-header dark-blue">
+      We
+    </div>
+    <div class="team-header">
+      promote
+    </div>
+    <% unless @promoters.blank? %>
+      <% @promoters.each do |team_member| %>
+        <p><%= team_member.name %></p>
+      <% end %>
+    <% end %>
+  </a>
+
+  <a class="team-blue-box no-margin" href="<%= page_path('we-collaborate') %>">
+    <div class="team-header dark-blue">
+      We
+    </div>
+    <div class="team-header">
+      collaborate
+    </div>
+    <% unless @collaborators.blank? %>
+      <% @collaborators.each do |team_member| %>
+        <p><%= team_member.name %></p>
+      <% end %>
+    <% end %>
+  </a>
+
+  <div class="clear"></div>
+</div>
+
+<div id="content-left">
+  <%= render 'pages/navigation' %>
+</div>
+
+<div id="content-main-right">
+  <h1 class="smaller"><%= title "Meet The Board" %></h1>
+
+  <div id="team-members">
+    <% unless @chair.blank? %>
+      <h2>Chair</h2>
+      <%= render 'team_members', :team_members => @chair %>
+    <% end %>
+    
+    <% unless @communicators.blank? %>
+      <h2>Communicators</h2>
+      <%= render 'team_members', :team_members => @communicators %>
+    <% end %>
+
+    <% unless @innovators.blank? %>
+      <h2>Innovators</h2>
+      <%= render 'team_members', :team_members => @innovators %>
+    <% end %>
+
+    <% unless @promoters.blank? %>
+      <h2>Promoters</h2>
+      <%= render 'team_members', :team_members => @promoters %>
+    <% end %>
+
+    <% unless @collaborators.blank? %>
+      <h2>Collaborators</h2>
+      <%= render 'team_members', :team_members => @collaborators %>
+    <% end %>
+  </div>
+  
+  <% unless @page.blank? %>
+    <%= raw @page.content%>
+  <% end %>
+</div>
+
+<div class="clear"></div>

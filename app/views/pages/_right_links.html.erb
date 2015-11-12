@@ -1,0 +1,29 @@
+<div id="content-right">
+  <div id="page-right-share">
+    <h2>Share your ideas</h2>
+    <h3>We want to hear from you</h3>
+    <p>
+      To propose a project, add your support to an initiative or to share
+      your views, call <%= SITE_SETTINGS['Contact Name'] %> on <span>01482 611802</span> or email
+      <%= mail_to SITE_SETTINGS['Email'] %>
+    </p>
+  </div>
+
+  <div id="page-right-twitter">
+    <%= render "pages/twitter" %>
+  </div>
+
+  <% if @business_highlight %>
+    <a id="page-right-business-highlight" href="<%= business_highlight_path(@business_highlight) %>">
+      <h2>Business highlight</h2>
+      <h3><%= @business_highlight.name %></h3>
+      <p>
+        <%= @business_highlight.summary %>
+      </p>
+    </a>
+  <% end %>
+
+  <a id="page-right-news" href="<%= articles_path %>">
+    <h2>latest news</h2>
+  </a>
+</div>

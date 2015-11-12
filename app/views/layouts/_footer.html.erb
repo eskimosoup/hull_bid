@@ -1,0 +1,45 @@
+<div id="footer-outer">
+  <div id="footer-inner">
+    <h2>What we do</h2>
+
+    <ol>
+      <li><%= link_to 'We communicate', page_path('we-communicate') %></li>
+      <li><%= link_to 'We innovate', page_path('we-innovate') %></li>
+      <li><%= link_to 'We promote', page_path('we-promote') %></li>
+      <li><%= link_to 'We collaborate', page_path('we-collaborate') %></li>
+    </ol>
+
+    <ol>
+      <% Willow::Branch.where(:tree => 'Footer Navigation').roots.order(:position).each do |branch| %>
+        <li><%= link_to branch.name, branch.destination %></li>
+      <% end %>
+    </ol>
+
+    <div class="clear"></div>
+
+    <div id="footer-logos"></div>
+
+    <div class="footer-bottom">
+      <div id="footer-copyright">
+        Copyright HullBID For a positively thriving city &copy; 2010 All rights reserved.
+      </div>
+
+      <div id="footer-bottom-links">
+        <%= link_to 'Privacy Policy', "/pages/privacy-policy" %> |
+        <%= link_to 'Disclaimer', "/pages/disclaimer" %> |
+        <%= link_to 'Accessibility', accessibility_path %> |
+        Web by
+        <%= link_to 'eskimosoup', 'http://www.eskimosoup.co.uk/', :target => '_blank' %>
+        &
+        <%= link_to 'H&H', 'http://handhcomms.co.uk/', :target => '_blank' %>
+      </div>
+
+      <div class="clear"></div>
+    </div>
+
+    <div class="footer-bottom">
+      Hull Business Improvement District (BID) Ltd. registered office: 34-38 Beverley Road, Hull,
+      HU3 1YE. A company guaranteed and registered in England no. 5483900. VAT Number: 902 638 044
+    </div>
+  </div>
+</div>

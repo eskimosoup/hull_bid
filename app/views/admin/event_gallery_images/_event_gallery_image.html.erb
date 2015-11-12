@@ -1,0 +1,8 @@
+<div class="image">
+  <%= link_to image_tag(event_gallery_image.image_url(:thumb)), edit_images_admin_event_gallery_event_gallery_image_path(@event_gallery, event_gallery_image) if event_gallery_image.image? %>
+  <div class="name"><%= event_gallery_image.image_alt %></div>
+  <div class="actions">
+    <%= link_to image_tag('informant/table_edit.gif'), edit_admin_event_gallery_event_gallery_image_path(@event_gallery, event_gallery_image) %> |
+    <%= link_to image_tag('informant/table_destroy.gif'), admin_event_gallery_event_gallery_image_path(@event_gallery, event_gallery_image), :confirm => 'Are you sure?', :method => :delete %>
+  </div>
+</div>

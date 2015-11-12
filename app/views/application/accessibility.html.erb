@@ -1,0 +1,22 @@
+<%= render 'pages/blue_boxes' %>
+
+<div id="content-main-left">
+  <% title "Accessibility" %>
+        
+  <h2>Access Keys</h2>
+  
+  <div id="Main Accessibility">
+    <h3>Main</h3>
+    <ul>
+      <% @branches.each do |branch| %>
+        <li>
+          <%= branch.access_key %> - <%= link_to(branch.name, branch.destination) %>
+        </li>
+      <% end %>
+    </ul>
+  </div> 
+</div>
+
+<%= render 'pages/right_links' %>
+
+<div class="clear"></div>

@@ -1,0 +1,49 @@
+<script type="text/javascript">
+  function toggleSelect(articleSelectID, emailItemType) {
+    if (emailItemType == 'Article') {
+      $("#"+articleSelectID).toggle(true);
+    } else {
+      $("#"+articleSelectID).toggle(false);
+    }
+  }
+</script>
+
+<%= field_set_tag 'Content' do -%>
+  <div class="field">
+    <%= label_tag 'email[heading]', 'Introduction Heading' %><br />
+    <%= text_field_tag 'email[heading]', @email.heading %>
+  </div>
+
+  <div class="field">
+    <%= label_tag 'email[summary]', 'Introduction Paragraph' %><br />
+    <%= text_area_tag 'email[summary]', @email.summary %>
+  </div>
+
+  <div class="field">
+    <%= label_tag 'email[event_gallery_id]', 'Event Gallery' %><br />
+    <%= select_tag(
+          'email[event_gallery_id]',
+          options_for_select(
+            EventGallery.where(:display => true).order(:position).map{|x| [x.name, x.id]},
+            @email.event_gallery_id
+          ),
+          { :include_blank => true }
+        ) %>
+  </div>
+<% end -%>
+
+<% @email.email_items.order(:position).each_with_index do |email_item, i| %>
+  <%= field_set_tag "Item #{i+1}", :id => "email-item-#{email_item.id}"  do %>
+    <%= hidden_field_tag "email[email_items_attributes][#{i+1}][id]", email_item.id %>
+
+    <%= render 'item', :length => i+1, :email_item => email_item %>
+
+    <div style="margin-top: 10px;">
+      <%= link_to_function '[remove]', "$.post('#{destroy_item_admin_email_path(@email, :email_item_id => email_item.id)}')" %>
+    </div>
+  <% end %>
+<% end %>
+
+<div id="new_email_item" style="margin: 0 20px 30px;">
+  <%= link_to_function 'Add Item', "$.post('#{new_item_admin_email_path(@email.id || 0)}?length=#{@email.email_items.length}')" %>
+</div>

@@ -1,0 +1,15 @@
+<% top_branch = (@current_branch.depth == 0 ? @current_branch : @current_branch.parent) %>
+
+<div id="left-navigation">
+  <h2><%= link_to top_branch.name, top_branch.destination %></h2>
+
+  <ol>
+    <% top_branch.children.order(:position).each do |branch| %>
+      <% if branch == @current_branch %>
+        <li><%= link_to branch.name, branch.destination, :class => 'current' %></li>
+      <% else %>
+        <li><%= link_to branch.name, branch.destination %></li>
+      <% end %>
+    <% end %>
+  </ol>
+</div>

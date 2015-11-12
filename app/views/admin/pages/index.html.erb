@@ -1,0 +1,20 @@
+<% title 'Pages' %>
+
+<div class="admin_functions">
+  <%= link_to 'New Page', new_admin_page_path %>
+</div>
+
+<%= render 'admin/shared/search' %>
+
+<%= informant_table @pages, {
+      :headings => [ :title, ih_order(:slug, 'Link'), '', '', '' ],
+      :body => [
+        :title,
+        lambda{|x| link_to page_url(:id => x.slug), page_url(:id => x.slug), :target => "_blank" },
+        it_edit_images(:image),
+        it_edit,
+        it_destroy
+      ]
+    } %>
+
+<%= paginate @pages %>

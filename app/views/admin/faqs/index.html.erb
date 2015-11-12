@@ -1,0 +1,17 @@
+<% title 'FAQs' %>
+
+<div class="admin_functions">
+  <%= link_to "New FAQ", new_admin_faq_path %>
+</div>
+
+<%= informant_table @faqs, {
+      :headings => [ '', 'Question', 'Answer', 'Display', '', '' ], 
+      :body => [ 
+        it_sort, 
+        it_shorten(:question),
+        it_shorten(:answer),
+        it_ajax_toggle(:display),
+        it_edit,
+        it_destroy
+      ]
+    } %>

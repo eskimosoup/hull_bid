@@ -1,0 +1,60 @@
+<%= form_for([:admin, @resource]) do |f| %>
+
+  <%= f.error_messages %>
+
+  <%= field_set_tag 'Basic' do -%>
+    
+    <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :summary %><br />
+      <%= f.text_area :summary %>
+    </div>
+  <% end -%>
+  
+  <%= field_set_tag 'Resource' do -%>  
+    <p class="admin_note">A resource will only display if you have a link or a document and display is set to true</p>
+
+    <div class="field">
+      <%= f.label :document %><br />
+      <%= f.file_field :document %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :document_title %><br />
+      <%= f.text_field :document_title %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :link %><br />
+      <%= f.text_field :link %>
+    </div>
+    
+  <% end -%>
+  
+  <%= field_set_tag 'Categories' do -%> 
+  	<p class="admin_note">
+  		Type a comma seperated list of categories for this news article here.  Press ',' between each entry.
+  		Or select from recently used categories below.
+  	</p>
+
+    <div class="field">
+  	  <%= f.tag_field :categories %>
+    </div>
+  <% end %>
+  
+  <%= field_set_tag 'Settings' do -%>
+    <div class="field">
+      <%= f.label :display %><br />
+      <%= f.check_box :display %>
+    </div>    
+  <% end -%>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  
+<% end %>					

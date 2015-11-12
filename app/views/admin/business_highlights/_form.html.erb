@@ -1,0 +1,51 @@
+<%= form_for([:admin, @business_highlight]) do |f| %>
+
+  <%= f.error_messages %>
+
+  <%= field_set_tag 'Basic' do -%>
+    <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="field">
+      <%= f.label :date %><br />
+      <% date = (f.object.date || Date.today) %>
+      <%= f.text_field :date, :class => "datepicker", :value => l(date) %>
+    </div>
+
+    <div class="field">
+      <%= f.label :summary %><br />
+      <%= f.text_area :summary %>
+    </div>
+  <% end -%>
+  
+  <%= field_set_tag 'Content' do -%>
+    <div class="field">
+      <%= f.label :main_content %><br />
+      <%= f.text_area :main_content, :class => 'tinymce' %>
+    </div>
+  <% end -%>
+  
+  <%= field_set_tag 'Images' do -%>
+    <%= f.image_field :image_1, :alt => true %>
+
+    <%= f.image_field :image_2, :alt => true %>
+
+    <%= f.image_field :image_3, :alt => true %>
+
+    <%= f.image_field :image_4, :alt => true %>
+  <% end -%>
+  
+  <%= field_set_tag 'Settings' do -%>
+    <div class="field">
+      <%= f.label :display %><br />
+      <%= f.check_box :display %>
+    </div>    
+  <% end -%>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  
+<% end %>					

@@ -1,0 +1,97 @@
+<div id="page-heading">
+  <h1><%= raw @page.title.gsub('We', '<span>We</span>') %></h1>
+
+  <div id="page-heading-tagline">
+    <%= @page.tagline %>
+  </div>
+</div>
+
+<div id="content-left">
+  <% if @current_branch %>
+    <%= render 'navigation' %>
+  <% end %>
+  
+  <% unless @team_members.blank? %>
+    <div id="team-blue-boxes">
+      <a class="team-blue-box" href="<%= team_members_path %>">
+        <div class="team-header dark-blue">
+          We
+        </div>
+        <div class="team-header">
+          <% if @page.title == 'We collaborate' %>
+            collaborate
+          <% elsif @page.title == 'We communicate' %>
+            communicate
+          <% elsif @page.title == 'We promote' %>
+            promote
+          <% elsif @page.title == 'We innovate' %>
+            innovate
+          <% end %>      
+        </div>
+    
+        <% @team_members.each do |team_member| %>
+          <p><%= team_member %></p>
+        <% end %>
+      
+      </a>
+      <div class="clear"></div>
+    </div>
+  <% end %>
+</div>
+
+<div id="content-main-right">
+  <% if @page.image? %>
+    <%= image_tag @page.image.show %>
+  <% end %>
+
+  <div class="user-content">
+    <%= raw @page.content %>
+  </div>
+  
+  <% unless @project.blank? %>
+    <div class="project">
+      <h2>Key projects we're working on</h2>
+
+      <% if @project.image_1? %>
+        <%= link_to( 
+          image_tag(@project.image_1.large, {:class => 'project-image', :alt => @project.caption_1, :id => "project-image-1"}),
+          @project.image_1.shadowbox.url,  {
+            :rel => 'shadowbox[project-images]',
+            :title => @project.caption_1
+          }
+        )%>
+      <% end %>
+
+      <% for i in 2..5 %>
+        <% if @project.send("image_#{i}?") %>
+          <%= link_to(
+            image_tag(@project.send("image_#{i}").small, {:class => 'project-image', :alt => @project.send("caption_#{i}"), :id => "project-image-#{i}" }),
+            @project.send("image_#{i}").shadowbox.url,  {
+            :rel => 'shadowbox[project-images]',
+            :title => @project.send("caption_#{i}")
+            })
+          %>
+        <% end %>      
+      <% end %>
+      <div class="clear"></div>
+      <h3><%= @project.title %></h3>
+    </div>
+  <% end %>
+  
+  <% unless @page.team_member.blank? %>
+    <div id="page-contact">
+      <%= render 'page_contact' %>
+    </div>
+  <% end %>
+
+  <% unless @partners.blank? %>
+    <div id="page-partners">
+      <h2>Our Partners</h2>
+      <% @partners.each do |partner| %>
+        <%= link_to image_tag(partner.logo.index), partner.website %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<div class="clear"></div>

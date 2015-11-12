@@ -1,0 +1,221 @@
+<table cellpadding="0" cellspacing="0" border="0" bgcolor="#EAECEB" width="600" align="center">
+  <tr>
+    <td width="10" bgcolor="#EAECEB">
+      &nbsp;
+    </td>
+
+    <td valign="top" width="180" bgcolor="#01aef0" align="center">
+      <table cellpadding="0" cellspacing="0" border="0" bgcolor="#01aef0" width="180" align="center">
+        <tr>
+          <td bgcolor="#01aef0"
+              style="padding: 5px;
+                     text-align: left;
+                     font-family: Rockwell, Palatino Linotype, Georgia, serif;
+                     font-size: 24px;
+                     line-height: 16px;">
+            <div style="background-color: #01aef0;
+                        font-family: Rockwell, Palatino Linotype, Georgia, serif;
+                        font-size: 18px;
+                        color: #000;
+                        line-height: 16px;">
+              City Centre Events
+            </div>
+          </td>
+        </tr>
+
+        <% if @events.blank? %>
+          <tr>
+            <td bgcolor="#01aef0"
+                style="padding: 5px;
+                       text-align: left;
+                       font-family: Rockwell, Palatino Linotype, Georgia, serif;
+                       font-size: 24px;
+                       line-height: 16px;">
+              <div style="background-color: #01aef0;
+                          font-family: Rockwell, Palatino Linotype, Georgia, serif;
+                          font-size: 14px;
+                          color: #000;
+                          line-height: 16px;">
+                There are currently no events to display
+              </div>
+            </td>
+          </tr>
+        <% end %>
+
+        <% @events.each do |event| %>
+          <tr>
+            <td bgcolor="#01aef0"
+                style="padding: 5px;
+                       text-align: left;
+                       font-family: Rockwell, Palatino Linotype, Georgia, serif;
+                       font-size: 24px;
+                       line-height: 16px;">
+              <div style="background-color: #01aef0;
+                          font-family: Rockwell, Palatino Linotype, Georgia, serif;
+                          font-size: 14px;
+                          color: #000;
+                          line-height: 16px;">
+                <%= event.headline %>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td bgcolor="#01aef0"
+                align="right"
+                style="padding: 5px;
+                       font-family: Arial, Helvetica, sans-serif;
+                       font-size: 24px;
+                       line-height: 16px;">
+              <%= link_to(event_url(event), {
+                    :style => "font-family: Rockwell, Arial, Helvetica, sans-serif;
+                               color: #FFF;
+                               font-size: 14px;
+                               text-decoration: none;",
+                    :target => "_blank"
+                  }) do |event| %>
+                Find Out More
+                <%= absolute_image_tag 'email-arrow-white.png', {
+                      :width => "14",
+                      :height => "14",
+                      :style => "display:inline-block;",
+                      :border => "0"
+                    } %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    </td>
+
+    <td width="10" bgcolor="#EAECEB">
+      &nbsp;
+    </td>
+
+    <td valign="top" width="180" bgcolor="#01aef0" align="center">
+      <table cellpadding="0" cellspacing="0" border="0" bgcolor="#01aef0" width="180" align="center">
+        <tr>
+          <td bgcolor="#01aef0" style="padding: 5px; text-align: left; font-family: Rockwell, Palatino Linotype, Georgia, serif; font-size: 24px; line-height: 16px;">
+            <div style="background-color: #01aef0; font-family: Rockwell, Palatino Linotype, Georgia, serif; font-size: 18px; color: #000; line-height: 16px;">
+              Business Highlight
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td bgcolor="#01aef0" style="padding: 5px; text-align: left; font-family: Rockwell, Palatino Linotype, Georgia, serif; font-size: 24px; line-height: 16px;">
+            <div style="background-color: #01aef0; font-family: Rockwell, Palatino Linotype, Georgia, serif; font-size: 18px; color: #fff; line-height: 16px;">
+              <%= @business_highlight.name %>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td bgcolor="#01aef0" style="padding: 5px; text-align: left; font-family: Arial, Helvetica, sans-serif; font-size: 24px; line-height: 16px;">
+            <div style="background-color: #01aef0; font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #000; line-height: 16px;">
+              <%= raw @business_highlight.summary.gsub("\n", '<br />') %>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td bgcolor="#01aef0"
+              align="right"
+              style="padding: 5px;
+                     font-family: Rockwell, Palatino Linotype, Georgia, serif;
+                     font-size: 24px;
+                     line-height: 16px;">
+            <%= link_to(business_highlight_url(@business_highlight), {
+                  :style => "font-family: Rockwell, Arial, Helvetica, sans-serif;
+                             color: #FFF;
+                             font-size: 14px;
+                             text-decoration: none;",
+                  :target => "_blank"
+                }) do %>
+              Read More
+              <%= absolute_image_tag 'email-arrow-white.png', {
+                    :width => "14",
+                    :height => "14",
+                    :style => "display:inline-block;",
+                    :border => "0"
+                  } %>
+            <% end %>
+          </td>
+        </tr>
+      </table>
+    </td>
+
+    <td width="10" bgcolor="#EAECEB">
+      &nbsp;
+    </td>
+
+    <td valign="top" width="180" bgcolor="#01aef0" align="center" >
+
+
+      <table cellpadding="0" cellspacing="0" border="0" bgcolor="#01aef0" width="180" align="center">
+        <tr>
+          <td bgcolor="#01aef0"
+              style="padding: 5px;
+                     text-align: left;
+                     font-family: Rockwell, Palatino Linotype, Georgia, serif;
+                     font-size: 24px;
+                     line-height: 16px;">
+            <%= link_to(event_gallery_url(@event_gallery), :style => "text-decoration: none;") do %>
+              <div style="background-color: #01aef0;
+                          font-family: Rockwell, Palatino Linotype, Georgia, serif;
+                          font-size: 18px;
+                          color: #000;
+                          line-height: 16px;">
+                Photo Gallery
+                <%= absolute_image_tag 'email-arrow-white.png', {
+                      :width => "14",
+                      :height => "14",
+                      :style => "display:inline-block;",
+                      :border => "0"
+                    } %>
+              </div>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td bgcolor="#01aef0"
+              style="padding: 5px;
+                     text-align: left;
+                     font-family: Rockwell, Palatino Linotype, Georgia, serif;
+                     font-size: 24px;
+                     line-height: 16px;">
+            <%= link_to(event_gallery_url(@event_gallery), :style => "text-decoration: none;") do %>
+              <div style="background-color: #01aef0;
+                          font-family: Rockwell, Palatino Linotype, Georgia, serif;
+                          font-size: 18px;
+                          color: #000;
+                          line-height: 16px;">
+
+                <%= absolute_image_tag @event_gallery.image.newsletter, {
+                      :alt => @event_gallery.name,
+                      :title => @event_gallery.name,
+                      :width => "180",
+                      :height => "180",
+                      :style => "display:block;",
+                      :border => "0"
+                    } %>
+              </div>
+            <% end %>
+          </td>
+        </tr>
+      </table>
+
+    </td>
+
+    <td width="10" bgcolor="#EAECEB">
+      &nbsp;
+    </td>
+  </tr>
+</table>
+
+<table cellpadding="0" cellspacing="0" border="0" bgcolor="#EAECEB" width="600" align="center">
+  <tr>
+    <td width="600" bgcolor="#EAECEB" height="15">
+      <div style="line-height: 15px;">
+        &nbsp;
+      </div>
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,27 @@
+<div id="content-right">
+  <a id="page-right-resources" href="<%= resources_path %>">
+    <h2>HullBID group meeting minutes</h2>
+    <p>
+      You can see minutes of all HullBID group 
+      meetings in the resources section click here
+    </p>
+  </a>
+
+  <div id="page-right-twitter">
+    <%= render "pages/twitter" %>
+  </div>
+
+  <% if @business_highlight %>
+    <a id="page-right-business-highlight" href="<%= business_highlight_path(@business_highlight) %>">
+      <h2>Business highlight</h2>
+      <h3><%= @business_highlight.name %></h3>
+      <p>
+        <%= @business_highlight.summary %>
+      </p>
+    </a>
+  <% end %>
+
+  <a id="page-right-news" href="<%= articles_path %>">
+    <h2>latest news</h2>
+  </a>
+</div>

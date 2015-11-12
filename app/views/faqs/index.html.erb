@@ -1,0 +1,30 @@
+<%= render 'pages/blue_boxes' %>
+
+<div id="content-left">
+  <% if @current_branch %>
+    <%= render 'pages/navigation' %>
+  <% end %>
+</div>
+
+<div id="content-main">
+  <%= image_tag 'faqs.jpg' %>
+
+  <h1>FAQs</h1>
+
+  <% unless @faqs.blank? %>
+    <div id="faqs">
+      <% @faqs.each do |faq| %>
+        <%= link_to_function faq.question, "$('#faq-#{faq.id}').toggle()" %>
+        <div id="faq-<%= faq.id %>" style="display: none;">
+          <%= faq.answer %>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    There are currently no FAQs to display
+  <% end %>
+</div>
+
+<%= render 'pages/about_right_links' %>
+
+<div class="clear"></div>

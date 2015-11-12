@@ -1,0 +1,21 @@
+<% title 'Dine Week Participants' %>
+
+<div class="admin_functions">
+  <%= link_to 'New Dine Week Participant', new_admin_dine_week_participant_path %>
+</div>
+
+<%= render 'admin/shared/search' %>
+
+<%= informant_table @dine_week_participants, {
+      :headings => [ :company_name, :telephone, :email, :display, '', '' ], 
+      :body => [
+        :company_name,
+        :telephone,
+        lambda{|x| x.email.blank? ? "" : mail_to(x.email)},
+        it_ajax_toggle(:display),
+        it_edit,
+        it_destroy
+      ]
+    } %>
+
+<%= paginate @dine_week_participants %>

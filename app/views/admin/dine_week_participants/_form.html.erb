@@ -1,0 +1,75 @@
+<%= form_for([:admin, @dine_week_participant]) do |f| %>
+
+  <%= f.error_messages %>
+
+  <%= field_set_tag 'Basic' do -%>
+    <div class="field">
+      <%= f.label :company_name %><br />
+      <%= f.text_field :company_name %>
+    </div>
+
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.text_field :email %>
+    </div>
+
+    <div class="field">
+      <%= f.label :telephone %><br />
+      <%= f.text_field :telephone %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :website %><br />
+      <%= f.text_field :website %>
+    </div>
+
+    <div class="field">
+      <%= f.label :notes %><br />
+      <%= f.text_area :notes %>
+    </div>
+  <% end -%>
+
+  <%= field_set_tag 'Address' do -%>
+    <div class="field">
+      <%= f.label :address %><br />
+      <%= f.text_area :address %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :city %><br />
+      <%= f.text_field :city %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :postcode %><br />
+      <%= f.text_field :postcode %>
+    </div>
+  <% end -%>
+  
+  <%= field_set_tag 'Settings' do -%>
+    <div class="field">
+      <%= f.label :bogof %><br />
+      <%= f.check_box :bogof %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :kids_eat_free %><br />
+      <%= f.check_box :kids_eat_free %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :ask_about_dine_week %><br />
+      <%= f.check_box :ask_about_dine_week %>
+    </div>
+
+    <div class="field">
+      <%= f.label :display %><br />
+      <%= f.check_box :display %>
+    </div>    
+  <% end -%>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  
+<% end %>					
