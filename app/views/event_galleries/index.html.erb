@@ -1,3 +1,14 @@
+<%= content_for :head do %>
+	<%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.6.0/jquery.matchHeight-min.js" %>
+
+	<script>
+		$(function() {
+		  $('.event-gallery').matchHeight({
+		    byRow: true
+		  });
+		});
+	</script>
+<% end %>
 <%= render 'pages/blue_boxes' %>
 
 <div id="content-left">
@@ -9,20 +20,24 @@
           <li><%= link_to event_gallery.name, event_gallery_path(event_gallery)%></li>
         <% end %>
       </ol>
-    <% end %>    
+    <% end %>
   </div>
 </div>
 
 <div id="content-main">
   <h2>Event Galleries</h2>
   <% unless @event_galleries.blank? %>
-    <% @event_galleries.each do |event_gallery| %>
-      <a class="event-gallery" href="<%= event_gallery_path(event_gallery) %>">
-        <% unless event_gallery.event_gallery_images.where(:display => true).blank? %>
-          <%= image_tag(event_gallery.event_gallery_images.where(:display => true).order(:position).first.image.small, :alt => event_gallery.event_gallery_images.first.image_alt) %>
-        <% end %>
-        <%= event_gallery.name %>
-      </a>
+    <% @event_galleries.in_groups_of(3, false) do |event| %>
+			<div class="row">
+				<% event.each do |event_gallery| %>
+		      <a class="event-gallery" href="<%= event_gallery_path(event_gallery) %>">
+		        <% unless event_gallery.event_gallery_images.where(:display => true).blank? %>
+		          <%= image_tag(event_gallery.event_gallery_images.where(:display => true).order(:position).first.image.small, :alt => event_gallery.event_gallery_images.first.image_alt) %>
+		        <% end %>
+		        <%= event_gallery.name %>
+		      </a>
+    		<% end %>
+			</div>
     <% end %>
   <% end %>
 </div>
