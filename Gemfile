@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.22'
-
+gem 'rails', '3.2.22.1'
+gem 'cancancan', '1.12.0'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
@@ -44,15 +44,10 @@ gem 'httparty', '0.11.0'
 gem 'execjs', '2.0.2'
 gem 'mini_magick', '3.8.1'
 gem 'ancestry', '2.0.0'
-#gem 'informant', :git => 'git@github.com:eskimosoup/informant.git', :branch => 'rails_3'
-#gem 'chronicler', :git => 'git@github.com:eskimosoup/chronicler.git', :branch => 'rails_3'
-#gem 'willow', :git => 'git@github.com:eskimosoup/willow.git', :branch => 'rails_3'
-#gem 'manticore', :git => 'git@github.com:eskimosoup/manticore.git', :branch => 'rails_3'
-
-gem 'informant', :path => '../../rails_3/informant'
-gem 'chronicler', :path => '../../rails_3/chronicler'
-gem 'manticore', :path => '../../rails_3/manticore'
-gem 'willow', :path => '../../rails_3/willow'
+gem 'informant', git: 'git@github.com:eskimosoup/informant.git', branch: 'rails_3'
+gem 'chronicler', git: 'git@github.com:eskimosoup/chronicler.git', branch: 'rails_3'
+gem 'willow', git: 'git@github.com:eskimosoup/willow.git', branch: 'rails_3'
+gem 'manticore', git: 'git@github.com:eskimosoup/manticore.git', branch: 'rails_3'
 
 gem "friendly_id", "~> 4.0.10.0"
 gem "jquery-fileupload-rails", '0.4.1'
