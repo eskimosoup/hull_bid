@@ -16,7 +16,7 @@ PATH
   remote: ../../rails_3/manticore
   specs:
     manticore (0.2.2)
-      cancancan (= 1.11.0)
+      cancancan (= 1.12.0)
       chronicler
       coffee-rails
       informant
@@ -76,7 +76,7 @@ GEM
     arel (3.0.3)
     bcrypt-ruby (3.0.1)
     builder (3.0.4)
-    cancancan (1.11.0)
+    cancancan (1.12.0)
     carrierwave (0.10.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
@@ -169,7 +169,7 @@ GEM
       ref
     thor (0.19.1)
     tilt (1.4.1)
-    tinymce-rails (4.2.7)
+    tinymce-rails (4.3.3)
       railties (>= 3.1.1)
     treetop (1.4.15)
       polyglot

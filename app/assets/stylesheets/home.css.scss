@@ -66,56 +66,56 @@ a.home-blue-box {
   margin-left: 16px;
 }
 
-#home-contact { 
-  width: 444px; 
-  height: 166px; 
-  background: white; 
+#home-contact {
+  width: 444px;
+  height: 260px;
+  background: white;
 }
 
-#home-news { 
-  width: 200px; 
+#home-news {
+  width: 200px;
   height: 126px;
-  background: white; 
+  background: white;
 }
 
 #home-events {
   margin-left: 16px;
-  width: 200px; 
+  width: 200px;
   height: 126px;
   background: white;
 }
 
-#home-achievement { 
-  width: 300px; 
-  height: 126px;
-  background: white; 
+#home-achievement {
+  width: 300px;
+  height: 132px;
+  background: white;
 }
 
-#home-resources { 
+#home-resources {
   margin-left: 16px;
-  width: 100px; 
-  height: 126px;
+  width: 100px;
+  height: 132px;
   background: white;
-  
+
   p.count{
     font-size: 1.4em;
     margin-bottom: 10px;
   }
-  
+
 }
 
-#home-business { 
-  width: 444px; 
-  height: 205px;
+#home-business {
+  width: 444px;
+  height: 261px;
   background: white;
 
-  img { 
-    float: right; 
+  img {
+    float: right;
     margin-top: 4px;
   }
 }
 
-#home-twitter, #home-newsletter { 
+#home-twitter, #home-newsletter {
   width: 444px;
   color: white;
 
@@ -130,30 +130,35 @@ a.home-blue-box {
   }
 }
 
-#home-twitter { 
-  height: 126px; 
+#home-newsletter p {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+#home-twitter {
+  height: 126px;
   background: black;
   h2 { background: image-url('twitter.png') no-repeat left; }
 }
 
-#home-newsletter { 
-  height: 87px; 
+#home-newsletter {
+  height: 131px;
   background: #01aef0;
 
-  h2 { 
+  h2 {
    line-height: 1.1;
-   background: image-url('newsletter.png') no-repeat left; 
+   background: image-url('newsletter.png') no-repeat left;
   }
-  
+
   .form-fields {
 	margin-top:0px;
 	padding-top:0px;
   }
-  
+
   form {
 	margin-left:50px;
   }
-  
+
   input {
     margin-top: 5px;
     padding: 4px;

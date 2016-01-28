@@ -5,9 +5,9 @@ HullBid2013::Application.configure do
 
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
-    :address => 'mail.eskimosoup.co.uk', 
-    :authentication => :plain, 
-    :user_name => 'tasks@eskimosoup.co.uk', 
+    :address => 'mail.eskimosoup.co.uk',
+    :authentication => :plain,
+    :user_name => 'tasks@eskimosoup.co.uk',
     :password => 'poipoip'
   }
 
@@ -42,7 +42,7 @@ HullBid2013::Application.configure do
   config.action_dispatch.best_standards_support = :builtin
 
   # Do not compress assets
-  config.assets.compress = false
+  config.assets.compress = true
 
   # Expands the lines which load the assets
   config.assets.debug = true
