@@ -24,7 +24,13 @@
           	<%= business.address_line_2 %><br />
           <% end %>
           <% unless business.address_line_3.blank? %>
-          	<%= business.address_line_3 %>
+          	<%= business.address_line_3 %><br />
+          <% end %>
+          <% unless business.town.blank? %>
+          	<%= business.town %><br />
+          <% end %>
+          <% unless business.postcode.blank? %>
+          	<%= business.postcode %>
           <% end %>
         </p>
       </div>
