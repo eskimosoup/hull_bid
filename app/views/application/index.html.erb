@@ -44,18 +44,9 @@
 <div id="home-column-1">
   <div id="home-contact">
     <!--
-    <h2>Got something to share?</h2>
-    <h3>We want to hear from you</h3>
-    <p>
-      If you're a business owner in the HullBID district, then you're part
-      of the partnership. To propose a project, add your support to an
-      initiative or to share your views, call
-      <span class="bold"><%= SITE_SETTINGS['Phone'] %></span>
-      or email
-      <%= mail_to SITE_SETTINGS['Email'], SITE_SETTINGS['Email'] %>
-    </p>
-    -->
     <iframe width="444" height="260" src="https://www.youtube.com/embed/yttgNAugZ84" frameborder="0" allowfullscreen></iframe>
+    -->
+    <%= link_to image_tag("BIDA-nomination-form.jpg"), "http://hullbid.co.uk/uploads/chronicler/document/document/4/BIDA_NOMINATION_FORM_a4_2016_toprint.pdf", :target => "_blank" %>
   </div>
 
   <div id="home-news">
@@ -67,7 +58,6 @@
       </p>
     <% else %>
       <p>
-        Latest news article goes here, for more information.
         Latest news article goes here, for more information.
       </p>
     <% end %>
