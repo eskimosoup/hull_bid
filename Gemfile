@@ -13,10 +13,10 @@ gem 'json'
 # in production environments by default.
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
-  #gem 'coffee-rails', '~> 3.2.1'
+  # gem 'coffee-rails', '~> 3.2.1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  gem 'therubyracer', :platforms => :ruby
+  gem 'therubyracer', platforms: :ruby
 
   gem 'uglifier', '>= 1.0.3'
 end
@@ -37,7 +37,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # gem 'ruby-debug'
 
 gem 'acts-as-taggable-on', '2.4.1'
-gem "fastercsv", "~> 1.5.5"
+gem 'fastercsv', '~> 1.5.5'
 gem 'xml-simple', '1.1.2'
 gem 'i18n', '0.6.11'
 gem 'httparty', '0.11.0'
@@ -49,8 +49,8 @@ gem 'chronicler', git: 'git@github.com:eskimosoup/chronicler.git', branch: 'rail
 gem 'willow', git: 'git@github.com:eskimosoup/willow.git', branch: 'rails_3'
 gem 'manticore', git: 'git@github.com:eskimosoup/manticore.git', branch: 'rails_3'
 
-gem "friendly_id", "~> 4.0.10.0"
-gem "jquery-fileupload-rails", '0.4.1'
-gem "twitter", '4.8.1'
-#gem "mailchimp", '0.0.8'
+gem 'friendly_id', '~> 4.0.10.0'
+gem 'jquery-fileupload-rails', '0.4.1'
+gem 'twitter', '4.8.1'
+# gem "mailchimp", '0.0.8'
 gem 'libv8', '3.16.14.3'
