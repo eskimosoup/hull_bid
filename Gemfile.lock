@@ -222,6 +222,3 @@ DEPENDENCIES
   uglifier (>= 1.0.3)
   willow!
   xml-simple (= 1.1.2)
-
-BUNDLED WITH
-   1.11.2
