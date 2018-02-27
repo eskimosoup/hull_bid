@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.22.1'
+gem 'rails', '3.2.22.5'
 gem 'cancancan', '1.12.0'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -36,7 +36,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # To use debugger
 # gem 'ruby-debug'
 
-gem 'acts-as-taggable-on', '2.4.1'
+gem 'acts-as-taggable-on'#, '2.4.1'
 gem 'fastercsv', '~> 1.5.5'
 gem 'xml-simple', '1.1.2'
 gem 'i18n', '0.6.11'
