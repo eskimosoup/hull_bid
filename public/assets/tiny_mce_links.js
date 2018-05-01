@@ -1,1 +1,0 @@
-var tinyMCELinkList=new Array();
