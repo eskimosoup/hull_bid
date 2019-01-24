@@ -5,7 +5,7 @@
 </div>
 
 <%= informant_table @team_members, {
-      :headings => [ '', 'Name', 'Category', 'Role', 'Email', 'Phone', 'Board Member', 'Chair', 'Vice Chair', 'Display', '', '', '' ], 
+      :headings => [ '', 'Name', 'Category', 'Role', 'Email', 'Phone', 'Board Member', 'Chair', 'Vice Chair', 'Display', '', '', '' ],
       :body => [
         it_sort,
         :name,
@@ -14,6 +14,7 @@
         lambda{|x| mail_to(x.email) if x.email?},
         :phone,
         it_ajax_toggle(:board_member),
+        it_ajax_toggle(:contact_page),
         it_ajax_toggle(:chair),
         it_ajax_toggle(:vice_chair),
         it_ajax_toggle(:display),

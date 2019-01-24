@@ -6,7 +6,7 @@
 
   <h2>The HULLBID team</h2>
   <div id="team-members">
-    <% TeamMember.where(:board_member => false, :display => true).each do |team_member| %>
+    <% TeamMember.where(:board_member => false, :contact_page => true, :display => true).each do |team_member| %>
       <div class="team-member">
         <% if team_member.image? %>
           <%= image_tag team_member.image.index, :alt => team_member.image_alt %>

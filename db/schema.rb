@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20180227153812) do
+ActiveRecord::Schema.define(:version => 20190124163203) do
 
   create_table "achievements", :force => true do |t|
     t.string   "name"
@@ -299,6 +299,7 @@ ActiveRecord::Schema.define(:version => 20180227153812) do
     t.string   "category"
     t.boolean  "chair"
     t.boolean  "vice_chair"
+    t.boolean  "contact_page", :default => false
   end
 
   create_table "willow_branches", :force => true do |t|

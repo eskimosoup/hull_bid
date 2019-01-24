@@ -4,16 +4,23 @@
   <div id="left-navigation">
     <h2>Resource filter</h2>
     <ol>
-      <% if params[:category] == "Footfall" %>
-        <li><%= link_to "Footfall", resources_path(:category => "Footfall"), :class => 'current' %></li>
-      <% else %>
-        <li><%= link_to "Footfall", resources_path(:category => "Footfall") %></li>
-      <% end %>
-      <% @resource_categories.each do |category| %>
+      <% @resource_categories.order(:name).each do |category| %>
+        <% next if category.name == 'Information packs' %>
+
         <% if category.name == params[:category] %>
           <li><%= link_to category.name, resources_path(:category => category.name), :class => 'current' %></li>
         <% else %>
           <li><%= link_to category.name, resources_path(:category => category.name) %></li>
+        <% end %>
+
+
+
+        <% if category.name == 'Financial Accounts' %>
+          <% if params[:category] == "Footfall" %>
+            <li><%= link_to "Footfall", resources_path(:category => "Footfall"), :class => 'current' %></li>
+          <% else %>
+            <li><%= link_to "Footfall", resources_path(:category => "Footfall") %></li>
+          <% end %>
         <% end %>
       <% end %>
     </ol>
