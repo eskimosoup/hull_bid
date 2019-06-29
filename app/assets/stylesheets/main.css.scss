@@ -24,9 +24,9 @@ h1 {
   span { color: #030000; font-weight: normal; }
 }
 
-h2 { 
+h2 {
   font-family: "museo-slab", Arial, Helvetica, sans-serif;
-  font-size: 2.1em; 
+  font-size: 2.1em;
 }
 
 h3 {
@@ -77,7 +77,7 @@ a.rss-link {
   }
 
   ol, ul {
-    margin-top: 10px; 
+    margin-top: 10px;
     font-size: 1.1em;
 
     li {
@@ -90,6 +90,10 @@ a.rss-link {
       color: #2e2e2e;
       &:hover, &.current { color: #28bbef; }
     }
+  }
+
+  strong {
+    font-weight: bold;
   }
 }
 
@@ -136,7 +140,7 @@ a.rss-link {
   }
 
   ol {
-    margin-top: 10px; 
+    margin-top: 10px;
     font-size: 1.1em;
 
     li {
@@ -202,7 +206,7 @@ a.rss-link {
 }
 
 #content-main-left h1, #content-main h1, h1.smaller {
-    margin-bottom: 10px; 
+    margin-bottom: 10px;
     font-size: 2.4em;
     font-weight: normal;
 }
@@ -221,7 +225,7 @@ a.rss-link {
   margin-bottom: 20px;
 
   h3 { color: #2e2e2e; }
-  
+
   img {
     float: right;
     margin-right: 18px;
@@ -234,10 +238,10 @@ a.rss-link {
   float: left;
   width: 50%;
 
-  h2 { 
+  h2 {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
-    color: #28bbef; 
+    color: #28bbef;
   }
 
   a {
@@ -311,7 +315,7 @@ a.rss-link {
   width: 188px;
   color: white;
   background: #01aef0;
-  
+
   img {
     float: left;
     margin-right: 18px;
@@ -359,8 +363,8 @@ a.team-blue-box {
   color: white;
   background: #01aef0;
 
-  &:hover { 
-    background: #0193ca; 
+  &:hover {
+    background: #0193ca;
     cursor: pointer;
   }
 }
@@ -417,7 +421,7 @@ form#business-search {
 
 a#event-gallery {
   float: left;
-  
+
   width: 437px;
   font-weight: bold;
   text-align: center;
