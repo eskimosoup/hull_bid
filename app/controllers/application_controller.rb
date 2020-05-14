@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   def index
     @current_branch = Willow::StaticPage.find_by_name("Home").branch
-    @article = Article.where(:display => true).order('date DESC').first
+    @article = Article.where(:display => true, :standalone => false).order('date DESC').first
     @event = Event.where(:display => true).order('start_date DESC').first
     @banners = Banner.where(:display => true).order(:position)
     @achievement = Achievement.where(:display => true).order('date DESC').first
@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
     footfall_data_entries = FootfallDataEntry.where("year = ?", year).order("month DESC")
     while footfall_data_entries.blank?
       year -= 1
-      footfall_data_entries = FootfallDataEntry.where("year = ?", year).order("month DESC")      
+      footfall_data_entries = FootfallDataEntry.where("year = ?", year).order("month DESC")
     end
     @footfall_data_entry = footfall_data_entries.first
   end

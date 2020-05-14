@@ -4,6 +4,7 @@ HullBid2013::Application.routes.draw do
 
   resources :achievements, :only => [:show]
   resources :articles, :only => [:index, :show]
+  resources :standalone_articles, :only => [:index, :show], path: 'covid-19-support'
   resources :businesses, :only => [:index]
   resources :business_highlights, :only => [:show]
   resources :contacts, :only => [:new, :create]

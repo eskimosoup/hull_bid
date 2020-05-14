@@ -7,12 +7,13 @@
 <%= render 'admin/shared/search' %>
 
 <%= informant_table @articles, {
-      :headings => [ :headline, :summary, :date, :display, '', '', '' ], 
+      :headings => [ :headline, :summary, :date, :display, :standalone, '', '', '' ],
       :body => [
         :headline,
         it_shorten(:summary),
         lambda{|x| l x.date},
         it_ajax_toggle(:display),
+        it_ajax_toggle(:standalone),
         it_edit_images(:image),
         it_edit,
         it_destroy

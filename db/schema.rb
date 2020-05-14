@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20180227153812) do
+ActiveRecord::Schema.define(:version => 20200514094631) do
+
+  create_table "Sheet1", :id => false, :force => true do |t|
+    t.string "name",           :limit => 46
+    t.string "address_line_1", :limit => 31
+    t.string "address_line_2", :limit => 25
+    t.string "address_line_3", :limit => 16
+    t.string "town",           :limit => 4
+    t.string "postcode",       :limit => 7
+    t.string "telephone",      :limit => 25
+    t.string "website",        :limit => 30
+    t.string "category",       :limit => 21
+  end
 
   create_table "achievements", :force => true do |t|
     t.string   "name"
@@ -35,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20180227153812) do
     t.string   "image_alt"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "standalone",   :default => false
   end
 
   create_table "banners", :force => true do |t|
@@ -66,6 +79,44 @@ ActiveRecord::Schema.define(:version => 20180227153812) do
   end
 
   create_table "businesses", :force => true do |t|
+    t.string   "name"
+    t.string   "address_line_1"
+    t.string   "address_line_2"
+    t.string   "address_line_3"
+    t.string   "town"
+    t.string   "postcode"
+    t.string   "telephone"
+    t.string   "email"
+    t.string   "website"
+    t.boolean  "display",        :default => true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "logo"
+    t.string   "logo_alt"
+    t.string   "Category"
+  end
+
+  add_index "businesses", ["name"], :name => "name", :unique => true
+
+  create_table "businesses_2017", :force => true do |t|
+    t.string   "name"
+    t.string   "address_line_1"
+    t.string   "address_line_2"
+    t.string   "address_line_3"
+    t.string   "town"
+    t.string   "postcode"
+    t.string   "telephone"
+    t.string   "email"
+    t.string   "website"
+    t.boolean  "display",        :default => true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "logo"
+    t.string   "logo_alt"
+    t.string   "Category"
+  end
+
+  create_table "businesses_old", :force => true do |t|
     t.string   "name"
     t.string   "address_line_1"
     t.string   "address_line_2"
@@ -275,12 +326,42 @@ ActiveRecord::Schema.define(:version => 20180227153812) do
   add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], :name => "taggings_idx", :unique => true
   add_index "taggings", ["taggable_id", "taggable_type", "context"], :name => "index_taggings_on_taggable_id_and_taggable_type_and_context"
 
+  create_table "taggings_2017", :force => true do |t|
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.integer  "tagger_id"
+    t.string   "tagger_type"
+    t.string   "context",       :limit => 128
+    t.datetime "created_at"
+  end
+
+  add_index "taggings_2017", ["tag_id"], :name => "index_taggings_on_tag_id"
+  add_index "taggings_2017", ["taggable_id", "taggable_type", "context"], :name => "index_taggings_on_taggable_id_and_taggable_type_and_context"
+
+  create_table "taggings_old", :force => true do |t|
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.integer  "tagger_id"
+    t.string   "tagger_type"
+    t.string   "context",       :limit => 128
+    t.datetime "created_at"
+  end
+
+  add_index "taggings_old", ["tag_id"], :name => "index_taggings_on_tag_id"
+  add_index "taggings_old", ["taggable_id", "taggable_type", "context"], :name => "index_taggings_on_taggable_id_and_taggable_type_and_context"
+
   create_table "tags", :force => true do |t|
     t.string  "name"
     t.integer "taggings_count", :default => 0
   end
 
   add_index "tags", ["name"], :name => "index_tags_on_name", :unique => true
+
+  create_table "tags_old", :force => true do |t|
+    t.string "name"
+  end
 
   create_table "team_members", :force => true do |t|
     t.string   "name"
@@ -299,6 +380,7 @@ ActiveRecord::Schema.define(:version => 20180227153812) do
     t.string   "category"
     t.boolean  "chair"
     t.boolean  "vice_chair"
+    t.boolean  "contact_page", :default => false
   end
 
   create_table "willow_branches", :force => true do |t|

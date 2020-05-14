@@ -19,18 +19,18 @@
       <%= f.text_area :summary %>
     </div>
   <% end %>
-  
-  <%= field_set_tag 'Content' do -%>    
+
+  <%= field_set_tag 'Content' do -%>
     <div class="field">
       <%= f.label :main_content %><br />
       <%= f.text_area :main_content, :class => 'tinymce' %>
     </div>
-  <% end -%>   
-    
-  <%= field_set_tag 'Images' do -%>  
+  <% end -%>
+
+  <%= field_set_tag 'Images' do -%>
     <%= f.image_field :image, :alt => true %>
   <% end -%>
-  
+
   <%= field_set_tag 'Categories' do -%>
   	<p class="admin_note">
   		Type a comma seperated list of categories for this news article here.  Press ',' between each entry.
@@ -40,16 +40,20 @@
   	  <%= f.tag_field :categories %>
     </div>
   <% end %>
-  
+
   <%= field_set_tag 'Settings' do -%>
+    <div class="field">
+      <%= f.label :standalone %><br />
+      <%= f.check_box :standalone %>
+    </div>
     <div class="field">
       <%= f.label :display %><br />
       <%= f.check_box :display %>
-    </div>    
+    </div>
   <% end -%>
-  
+
   <div class="actions">
     <%= f.submit %>
   </div>
-  
-<% end %>					
+
+<% end %>
