@@ -38,6 +38,6 @@ production:
   reconnect: false
   database: hullbid_hull_bid_2013
   pool: 5
-  username: root
+  username: hullbid
   password: bidhull47#!
   #socket: /var/lib/mysql/mysql.sock
