@@ -55,3 +55,12 @@ gem 'twitter', '4.8.1'
 # gem "mailchimp", '0.0.8'
 gem 'libv8', '3.16.14.3'
 # gem 'libv8', '3.11.8.17'
+gem 'seed_dump', group: :development
+gem 'optimadmin_generators', git: 'git@github.com:eskimosoup/optimadmin_generators.git', group: :development, branch: :manticore
+
+group :development do
+  gem "capistrano", :require => false
+  gem "capistrano-rails", :require => false
+  gem "capistrano-rbenv", :require => false
+  gem "capistrano-passenger", :require => false
+end

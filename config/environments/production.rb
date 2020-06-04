@@ -2,8 +2,15 @@ HullBid2013::Application.configure do
 
   config.action_mailer.default_url_options = { :host => 'www.hullbid.co.uk' }
 
-  ActionMailer::Base.delivery_method = :sendmail
-  ActionMailer::Base.sendmail_settings = { :location => '/usr/lib/sendmail', :arguments => '-i -v' }
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+    address: 'mail.optimised.today',
+    authentication: :plain,
+    user_name: 'noreply@optimised.today',
+    password: ENV['NOREPLY_PASSWORD'],
+    enable_starttls_auto: false,
+    port: 587
+  }
 
   # Settings specified here will take precedence over those in config/application.rb
 
