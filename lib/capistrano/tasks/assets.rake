@@ -62,7 +62,7 @@ namespace :deploy do
     desc 'Precompile'
     task :exec do
       run_locally do
-        execute "bundle exec rake assets:precompile RAILS_ENV=#{fetch(:stage)}"
+        # execute "bundle exec rake assets:precompile RAILS_ENV=#{fetch(:stage)}"
       end
     end
 

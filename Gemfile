@@ -64,3 +64,5 @@ group :development do
   gem "capistrano-rbenv", :require => false
   gem "capistrano-passenger", :require => false
 end
+
+gem 'test-unit'

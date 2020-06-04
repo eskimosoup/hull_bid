@@ -172,6 +172,7 @@ GEM
     parser (2.7.1.3)
       ast (~> 2.4.0)
     polyglot (0.3.5)
+    power_assert (1.2.0)
     rack (1.4.7)
     rack-cache (1.7.1)
       rack (>= 0.4)
@@ -234,6 +235,8 @@ GEM
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
     subexec (0.2.3)
+    test-unit (3.3.5)
+      power_assert
     therubyracer (0.12.2)
       libv8 (~> 3.16.14.0)
       ref
@@ -285,6 +288,7 @@ DEPENDENCIES
   rails (= 3.2.22.5)
   sass-rails (~> 3.2.3)
   seed_dump
+  test-unit
   twitter (= 4.8.1)
   uglifier (>= 1.0.3)
   willow!
