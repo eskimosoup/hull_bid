@@ -11,7 +11,7 @@ class ResourcesController < ApplicationController
 			@page = Page.where(:title => "Resources").first
 			@title = "Resources"
     end
-    @resource_categories = Tag.joins(:taggings).where(:taggings => {:taggable_type => 'Resource'}).order("created_at DESC").uniq
+    @resource_categories = Tag.joins(:taggings).where(:taggings => {:taggable_type => 'Resource'}).uniq
     @business_highlight = BusinessHighlight.where(:display => true).order("date desc").first
   end
 end

@@ -1,6 +1,5 @@
 HullBid2013::Application.configure do
 
-  config.logger = Logger.new(config.paths['log'].first, 3, 5_242_880)
   config.action_mailer.default_url_options = { :host => 'www.hullbid.co.uk' }
 
   ActionMailer::Base.delivery_method = :smtp

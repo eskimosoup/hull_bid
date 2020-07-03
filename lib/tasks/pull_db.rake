@@ -6,7 +6,7 @@ namespace :db do
   task pull: %i[dump restore:local remote_assets]
 
   dumpfile = 'db.sql'
-  host = 'mysql.allofmy.co.uk'
+  host = 'my2.allofmy.co.uk'
   env_to_pull_from = 'production'
 
   task :dump do
