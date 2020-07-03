@@ -3,7 +3,7 @@ jQuery(function() {
     dataType: "script",
     add: function(e, data) {
       var file, types;
-      var whiteList = "<%= Chronicler::ImageUploader.extension_white_list.join('|') %>";
+      var whiteList = "<%= %w(jpg jpeg jpe png gif bmp).join('|') %>";
       types = new RegExp("(\.|\/)(" + whiteList + ")$", "i");
 
       file = data.files[0];
