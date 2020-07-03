@@ -34,7 +34,7 @@ namespace :deploy do
     invoke 'deploy:assets:compress_images'
     invoke 'deploy:assets:sync'
     invoke 'deploy:assets:cleanup'
-    invoke 'deploy:assets:backup_manifest'
+    # invoke 'deploy:assets:backup_manifest'
   end
 
   namespace :assets do
@@ -62,7 +62,7 @@ namespace :deploy do
     desc 'Precompile'
     task :exec do
       run_locally do
-        # execute "bundle exec rake assets:precompile RAILS_ENV=#{fetch(:stage)}"
+        execute "bundle exec rake assets:precompile RAILS_ENV=#{fetch(:stage)}"
       end
     end
 
