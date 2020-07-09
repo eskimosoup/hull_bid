@@ -5,7 +5,7 @@
     <h2>Resource filter</h2>
     <ol>
       <% if params[:category] == "Footfall" %>
-        <li><%= link_to "Footfall", resources_path(:category => "Footfall"), :class => 'current' %></li>        
+        <li><%= link_to "Footfall", resources_path(:category => "Footfall"), :class => 'current' %></li>
       <% else %>
         <li><%= link_to "Footfall", resources_path(:category => "Footfall") %></li>
       <% end %>
@@ -67,15 +67,15 @@
             var options = {};
             var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
             chart.draw(data, options);
-            
+
           }
         </script>
       <% end %>
       <h2><strong>Footfall</strong> across the city centre</h2>
       <div id="chart_div" style="width: 437px; height: 500px;"></div>
-    <% else %>
-      <%= raw @page.content %>    
-    <% end %>  
+    <% elsif @page.present? %>
+      <%= raw @page.content %>
+    <% end %>
   <% end %>
 </div>
 
