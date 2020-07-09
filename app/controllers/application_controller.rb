@@ -22,11 +22,11 @@ class ApplicationController < ActionController::Base
   end
 
   def accessibility
-    @branches = Willow::Tree.find_by_name("Main Navigation").branches.roots
+    @branches = Willow::Branch.where(:tree => 'Main Navigation').roots.order(:position)
   end
 
   def site_map
-    @branches = Willow::Tree.find_by_name("Main Navigation").branches.order(:positions_depth_cache)
+    @branches = Willow::Branch.where(:tree => 'Main Navigation').roots.order(:position)
   end
 
   def rss
